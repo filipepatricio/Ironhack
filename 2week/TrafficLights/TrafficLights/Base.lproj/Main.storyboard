@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zXP-DE-PzX">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Edit DurationsVC-->
+        <scene sceneID="ilz-ae-3Ky">
+            <objects>
+                <viewController id="sIe-3X-Zsf" customClass="EditDurationsVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pbo-Uq-liQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="d7C-Hg-cOS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QBt-4g-Tm4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Red Light Duration" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vgc-B5-X0V">
+                                <rect key="frame" x="16" y="72" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Yellow Light Duration" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2rz-et-Anp">
+                                <rect key="frame" x="16" y="110" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Green Light Duration" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RVx-n7-LHT">
+                                <rect key="frame" x="16" y="148" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3CT-3P-Vfd">
+                                <rect key="frame" x="93" y="186" width="135" height="30"/>
+                                <state key="normal" title="Save Durations">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveDurationsButtonPressed:" destination="sIe-3X-Zsf" eventType="touchUpInside" id="ljx-nN-sck"/>
+                                    <segue destination="vXZ-lx-hvc" kind="show" identifier="Edit Durations Segue" id="fxB-IS-WfT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3CT-3P-Vfd" firstAttribute="centerX" secondItem="RVx-n7-LHT" secondAttribute="centerX" id="2dz-fU-5vA"/>
+                            <constraint firstItem="3CT-3P-Vfd" firstAttribute="leading" secondItem="QBt-4g-Tm4" secondAttribute="leadingMargin" constant="77" id="3Cy-fG-JSg"/>
+                            <constraint firstItem="RVx-n7-LHT" firstAttribute="trailing" secondItem="2rz-et-Anp" secondAttribute="trailing" id="Hg1-fd-iJf"/>
+                            <constraint firstItem="vgc-B5-X0V" firstAttribute="trailing" secondItem="2rz-et-Anp" secondAttribute="trailing" id="Kwe-C7-oPF"/>
+                            <constraint firstItem="RVx-n7-LHT" firstAttribute="leading" secondItem="2rz-et-Anp" secondAttribute="leading" id="OUC-YE-Z4E"/>
+                            <constraint firstItem="vgc-B5-X0V" firstAttribute="leading" secondItem="QBt-4g-Tm4" secondAttribute="leadingMargin" id="Ob4-Yj-meV"/>
+                            <constraint firstItem="2rz-et-Anp" firstAttribute="centerY" secondItem="QBt-4g-Tm4" secondAttribute="centerY" constant="-159" id="SbM-tJ-nVl"/>
+                            <constraint firstItem="2rz-et-Anp" firstAttribute="top" secondItem="vgc-B5-X0V" secondAttribute="bottom" constant="8" symbolic="YES" id="aG2-MF-Yim"/>
+                            <constraint firstItem="vgc-B5-X0V" firstAttribute="trailing" secondItem="QBt-4g-Tm4" secondAttribute="trailingMargin" id="jRG-ia-WET"/>
+                            <constraint firstItem="vgc-B5-X0V" firstAttribute="leading" secondItem="2rz-et-Anp" secondAttribute="leading" id="jn0-eL-kDX"/>
+                            <constraint firstItem="RVx-n7-LHT" firstAttribute="top" secondItem="2rz-et-Anp" secondAttribute="bottom" constant="8" symbolic="YES" id="jzn-0D-6RY"/>
+                            <constraint firstItem="3CT-3P-Vfd" firstAttribute="top" secondItem="RVx-n7-LHT" secondAttribute="bottom" constant="8" symbolic="YES" id="vPg-pY-USx"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="QZ9-aA-P4D"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="greeLightDuration" destination="RVx-n7-LHT" id="suX-nR-Ega"/>
+                        <outlet property="redLightDuration" destination="vgc-B5-X0V" id="OEE-7y-4AM"/>
+                        <outlet property="yellowLightDuration" destination="2rz-et-Anp" id="71u-UG-KHo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jzQ-BM-F01" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="579" y="192"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController storyboardIdentifier="MainViewController" id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lwR-jO-zCs" customClass="TrafficLightView">
+                                <rect key="frame" x="60" y="184" width="200" height="200"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="5bn-Ax-6HE"/>
+                                    <constraint firstAttribute="width" constant="200" id="cNK-xo-WXu"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lwR-jO-zCs" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="28p-DY-5gf"/>
+                            <constraint firstItem="lwR-jO-zCs" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="URo-Sh-MZd"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="trafficLightView" destination="lwR-jO-zCs" id="m7r-Li-bVm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1058" y="192"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mlA-uM-Myn">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zXP-DE-PzX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yrw-fl-7kb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="sIe-3X-Zsf" kind="relationship" relationship="rootViewController" id="xkL-Ce-BBp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k6k-1M-TTS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="160" y="192"/>
+        </scene>
+    </scenes>
+</document>
