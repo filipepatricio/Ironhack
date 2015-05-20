@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>name</key>
+		<string>Sagres</string>
+		<key>countryID</key>
+		<integer>0</integer>
+		<key>imageName</key>
+		<string>sagres</string>
+		<key>alcoholPercent</key>
+		<integer>5</integer>
+	</dict>
+    <dict>
+        <key>name</key>
+        <string>SuperBock</string>
+        <key>countryID</key>
+        <integer>0</integer>
+        <key>imageName</key>
+        <string>superbock</string>
+        <key>alcoholPercent</key>
+        <integer>5</integer>
+    </dict>
+    <dict>
+        <key>name</key>
+        <string>Cruzcampo</string>
+        <key>countryID</key>
+        <integer>1</integer>
+        <key>imageName</key>
+        <string>cruzcampo</string>
+        <key>alcoholPercent</key>
+        <integer>6</integer>
+    </dict>
+    <dict>
+        <key>name</key>
+        <string>Erdinger</string>
+        <key>countryID</key>
+        <integer>2</integer>
+        <key>imageName</key>
+        <string>erdinger</string>
+        <key>alcoholPercent</key>
+        <integer>3</integer>
+    </dict>
+</array>
+</plist>
