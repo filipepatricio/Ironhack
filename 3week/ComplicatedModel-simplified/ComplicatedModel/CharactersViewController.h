@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "FormViewController.h"
+#import "EditCharacterViewController.h"
 
 @interface CharactersViewController : UIViewController
-    <FormViewControllerDelegate>
+    <FormViewControllerDelegate, EditCharacterDelegate>
 
 @property (weak, nonatomic) IBOutlet
     UITableView* tableView;

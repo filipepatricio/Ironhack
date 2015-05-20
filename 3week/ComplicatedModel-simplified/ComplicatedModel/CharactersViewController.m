@@ -10,6 +10,7 @@
 #import "CharacterModel.h"
 #import "GeorgeCell.h"
 #import "FormViewController.h"
+#import "EditCharacterViewController.h"
 
 @interface CharactersViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -53,7 +54,8 @@
 }
 
 
-#pragma mark - UITableViewDelegate optional methods implementation
+
+#pragma mark - FormViewControllerDelegate
 
 -(void)didCreateCharacter:(CharacterModel *)model
 {
@@ -69,6 +71,8 @@
     
     [self saveCharactersToDisc];
 }
+
+
 
 -(void)saveCharactersToDisc
 {
@@ -99,7 +103,35 @@
     [convertedCharacters writeToFile:destinationPath
                      atomically:YES];
     
+    [self.tableView reloadData];
+    
 }
+
+#pragma mark - EditCharacterDelegate
+
+-(void)viewController:(UIViewController*)viewController editedCharacter:(CharacterModel*)character indexPath:(NSIndexPath*)indexPath
+{
+    
+    NSMutableArray *charactersMutableCopy = [self.characters mutableCopy];
+    charactersMutableCopy[indexPath.row] = character;
+    
+    self.characters = [charactersMutableCopy copy];
+    
+    [self saveCharactersToDisc];
+}
+
+-(void)viewController:(UIViewController*)viewController deletedCharacter:(CharacterModel*)character indexPath:(NSIndexPath*)indexPath
+{
+    NSMutableArray *charactersMutableCopy = [self.characters mutableCopy];
+    [charactersMutableCopy removeObjectAtIndex:indexPath.row];
+    
+    self.characters = [charactersMutableCopy copy];
+    
+    [self saveCharactersToDisc];
+    
+}
+
+#pragma mark - Navigation
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue
                 sender:(id)sender
@@ -109,6 +141,15 @@
         FormViewController* formVC =
             segue.destinationViewController;
         formVC.delegate = self;
+    }
+    else if ([segue.identifier isEqualToString:@"EditCharacter"]) {
+        
+        EditCharacterViewController * editVC =
+        segue.destinationViewController;
+        editVC.delegate = self;
+        editVC.indexPath = self.tableView.indexPathForSelectedRow;
+        editVC.character = self.characters[editVC.indexPath.row];
+
     }
 }
 
