@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zhp-N4-MRA">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="gBj-XM-FJS">
+            <objects>
+                <viewController id="zhp-N4-MRA" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Evh-ae-gFn"/>
+                        <viewControllerLayoutGuide type="bottom" id="HYi-VQ-wNx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Wkg-Bd-zN7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iPhone View Controller" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJO-FR-SxL">
+                                <rect key="frame" x="65" y="84" width="191" height="83"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="83" id="P0t-q5-5jE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rNd-mI-peW">
+                                <rect key="frame" x="65" y="201" width="196" height="177"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="177" id="EFp-kD-aV4"/>
+                                </constraints>
+                                <state key="normal" title="Push me on the iPhone">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionButtonPushed:" destination="zhp-N4-MRA" eventType="touchUpInside" id="DJk-re-Ef6"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bart" translatesAutoresizingMaskIntoConstraints="NO" id="rtD-gR-xjb">
+                                <rect key="frame" x="222" y="478" width="82" height="82"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="82" id="XNX-E7-cl6"/>
+                                    <constraint firstAttribute="width" constant="82" id="wKN-tF-nMi"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.63047361810000002" green="0.90182577320000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="rtD-gR-xjb" firstAttribute="bottom" secondItem="HYi-VQ-wNx" secondAttribute="top" constant="-8" id="S3T-d9-KC9"/>
+                            <constraint firstItem="bJO-FR-SxL" firstAttribute="leading" secondItem="Wkg-Bd-zN7" secondAttribute="leadingMargin" constant="49" id="YlL-1a-Kfu"/>
+                            <constraint firstItem="rtD-gR-xjb" firstAttribute="trailing" secondItem="Wkg-Bd-zN7" secondAttribute="trailingMargin" id="fJJ-rJ-g7I"/>
+                            <constraint firstItem="bJO-FR-SxL" firstAttribute="centerX" secondItem="Wkg-Bd-zN7" secondAttribute="centerX" id="hm5-gI-4YI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rNd-mI-peW" secondAttribute="trailing" constant="43" id="jnj-Dc-S2x"/>
+                            <constraint firstItem="bJO-FR-SxL" firstAttribute="top" secondItem="Evh-ae-gFn" secondAttribute="bottom" constant="64" id="oLk-rj-7HW"/>
+                            <constraint firstItem="rNd-mI-peW" firstAttribute="top" secondItem="bJO-FR-SxL" secondAttribute="bottom" constant="34" id="tjo-gK-pyN"/>
+                            <constraint firstItem="bJO-FR-SxL" firstAttribute="leading" secondItem="rNd-mI-peW" secondAttribute="leading" id="usz-hm-2b3"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="myLabel" destination="bJO-FR-SxL" id="ftn-ZI-4ii"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VqO-O7-3bo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="698" y="482"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bart" width="48" height="48"/>
+    </resources>
+</document>

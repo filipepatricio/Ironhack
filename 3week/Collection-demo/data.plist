@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>showName</key>
+		<string>Star Wars</string>
+		<key>showImage</key>
+		<string>starwars.png</string>
+		<key>showCharacters</key>
+		<array>
+			<dict>
+				<key>name</key>
+				<string>Han</string>
+				<key>image</key>
+				<string>han.png</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>C3PO</string>
+				<key>image</key>
+				<string>c3po.png</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Darth Vader</string>
+				<key>image</key>
+				<string>vader.png</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>showName</key>
+		<string>The Simpsons</string>
+		<key>showImage</key>
+		<string>simpsons.png</string>
+		<key>showCharacters</key>
+		<array>
+			<dict>
+				<key>name</key>
+				<string>Bart</string>
+				<key>image</key>
+				<string>bart.png</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Homer</string>
+				<key>image</key>
+				<string>homer.png</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Lisa</string>
+				<key>image</key>
+				<string>lisa.png</string>
+			</dict>
+		</array>
+	</dict>
+</array>
+</plist>
