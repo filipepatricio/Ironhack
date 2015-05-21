@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b4M-ex-Du9">
+                                <rect key="frame" x="40" y="57" width="240" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kCL-ah-kmV">
+                                <rect key="frame" x="40" y="244" width="240" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FakePassword: ironhack" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5f-pp-cvn">
+                                <rect key="frame" x="40" y="28" width="240" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vwl-l5-NC0">
+                                <rect key="frame" x="40" y="337" width="240" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEO-xG-AXa">
+                                <rect key="frame" x="40" y="95" width="240" height="30"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionLogin:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="zOm-QN-6tb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1K-Tc-mtm">
+                                <rect key="frame" x="40" y="277" width="240" height="30"/>
+                                <state key="normal" title="Get Weather">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionGetWeather:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="BLb-Ok-uHd"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Actual Temperature" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yb1-gk-TlA">
+                                <rect key="frame" x="40" y="366" width="240" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cEO-xG-AXa" firstAttribute="leading" secondItem="b4M-ex-Du9" secondAttribute="leading" id="5hh-9F-58o"/>
+                            <constraint firstItem="kCL-ah-kmV" firstAttribute="leading" secondItem="b4M-ex-Du9" secondAttribute="leading" id="6Do-y5-ek4"/>
+                            <constraint firstItem="kCL-ah-kmV" firstAttribute="trailing" secondItem="f1K-Tc-mtm" secondAttribute="trailing" id="D02-l1-ffP"/>
+                            <constraint firstItem="kCL-ah-kmV" firstAttribute="top" secondItem="a5f-pp-cvn" secondAttribute="bottom" constant="195" id="DV7-C3-tU2"/>
+                            <constraint firstItem="cEO-xG-AXa" firstAttribute="trailing" secondItem="b4M-ex-Du9" secondAttribute="trailing" id="GdL-ju-C9J"/>
+                            <constraint firstItem="kCL-ah-kmV" firstAttribute="trailing" secondItem="b4M-ex-Du9" secondAttribute="trailing" id="NR7-EY-8kM"/>
+                            <constraint firstItem="Vwl-l5-NC0" firstAttribute="trailing" secondItem="f1K-Tc-mtm" secondAttribute="trailing" id="RUd-4T-SBu"/>
+                            <constraint firstItem="f1K-Tc-mtm" firstAttribute="top" secondItem="kCL-ah-kmV" secondAttribute="bottom" constant="3" id="ZnA-zC-tVu"/>
+                            <constraint firstItem="b4M-ex-Du9" firstAttribute="top" secondItem="kCL-ah-kmV" secondAttribute="bottom" constant="-217" id="aZv-WR-eYg"/>
+                            <constraint firstItem="kCL-ah-kmV" firstAttribute="leading" secondItem="a5f-pp-cvn" secondAttribute="leading" id="fhK-d7-IhK"/>
+                            <constraint firstItem="Vwl-l5-NC0" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="ral-9E-wne"/>
+                            <constraint firstItem="a5f-pp-cvn" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="24" id="rcx-eT-gPz"/>
+                            <constraint firstItem="Vwl-l5-NC0" firstAttribute="leading" secondItem="f1K-Tc-mtm" secondAttribute="leading" id="rg9-2Q-LQV"/>
+                            <constraint firstItem="cEO-xG-AXa" firstAttribute="top" secondItem="b4M-ex-Du9" secondAttribute="bottom" constant="8" symbolic="YES" id="vAq-OM-Ezs"/>
+                            <constraint firstItem="kCL-ah-kmV" firstAttribute="trailing" secondItem="a5f-pp-cvn" secondAttribute="trailing" id="vU4-Z9-1vH"/>
+                            <constraint firstItem="a5f-pp-cvn" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" symbolic="YES" id="wn3-bq-YMA"/>
+                            <constraint firstItem="Vwl-l5-NC0" firstAttribute="top" secondItem="f1K-Tc-mtm" secondAttribute="bottom" constant="30" id="ztl-Oy-5pB"/>
+                            <constraint firstItem="f1K-Tc-mtm" firstAttribute="leading" secondItem="kCL-ah-kmV" secondAttribute="leading" id="zvv-QJ-m0A"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="cityTextField" destination="kCL-ah-kmV" id="ZId-aI-2A5"/>
+                        <outlet property="descriptionLabel" destination="Vwl-l5-NC0" id="aDO-C8-W32"/>
+                        <outlet property="passwordTextField" destination="b4M-ex-Du9" id="QpN-3i-cM4"/>
+                        <outlet property="temperatureLabel" destination="Yb1-gk-TlA" id="gY2-g7-U4r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>

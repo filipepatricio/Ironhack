@@ -1,0 +1,13 @@
+PODS:
+  - JSONModel (1.1.0)
+  - UITextField+Shake (1.0)
+
+DEPENDENCIES:
+  - JSONModel
+  - UITextField+Shake
+
+SPEC CHECKSUMS:
+  JSONModel: ec77e9865236a7a09d9cf7668df6b4b328d9ec1d
+  UITextField+Shake: 61fe6ff0cdbf667618d1e856022940aa7798c3f0
+
+COCOAPODS: 0.37.1
