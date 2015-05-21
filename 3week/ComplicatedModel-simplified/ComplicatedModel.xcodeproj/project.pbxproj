@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B4E60181B0DF148008AD776 /* MyLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4E60171B0DF148008AD776 /* MyLabel.m */; };
 		9BFD3CEE1B0CBFD3005EFB23 /* EditCharacterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFD3CED1B0CBFD3005EFB23 /* EditCharacterViewController.m */; };
 		9C36BC951B04E3B300AEAA51 /* FormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C36BC941B04E3B300AEAA51 /* FormViewController.m */; };
 		DC346E5B1B047AE200AD85D9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DC346E5A1B047AE200AD85D9 /* main.m */; };
@@ -32,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B4E60161B0DF148008AD776 /* MyLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLabel.h; sourceTree = "<group>"; };
+		9B4E60171B0DF148008AD776 /* MyLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLabel.m; sourceTree = "<group>"; };
 		9BFD3CEC1B0CBFD3005EFB23 /* EditCharacterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditCharacterViewController.h; sourceTree = "<group>"; };
 		9BFD3CED1B0CBFD3005EFB23 /* EditCharacterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditCharacterViewController.m; sourceTree = "<group>"; };
 		9C36BC931B04E3B300AEAA51 /* FormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormViewController.h; sourceTree = "<group>"; };
@@ -112,6 +115,7 @@
 				DC346E941B04BC0300AD85D9 /* View */,
 				DC346E811B047C9000AD85D9 /* Model */,
 				DC346E7E1B047AE700AD85D9 /* Resources */,
+				DC346E981B04C66E00AD85D9 /* Main.storyboard */,
 				DC346E5C1B047AE200AD85D9 /* AppDelegate.h */,
 				DC346E5D1B047AE200AD85D9 /* AppDelegate.m */,
 				DC346E651B047AE200AD85D9 /* Images.xcassets */,
@@ -150,7 +154,6 @@
 		DC346E7E1B047AE700AD85D9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				DC346E981B04C66E00AD85D9 /* Main.storyboard */,
 				DC346E7F1B047B0800AD85D9 /* data.plist */,
 			);
 			name = Resources;
@@ -170,6 +173,8 @@
 			children = (
 				DC346E951B04BC6D00AD85D9 /* GeorgeCell.h */,
 				DC346E961B04BC6D00AD85D9 /* GeorgeCell.m */,
+				9B4E60161B0DF148008AD776 /* MyLabel.h */,
+				9B4E60171B0DF148008AD776 /* MyLabel.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -277,6 +282,7 @@
 			files = (
 				DC346E971B04BC6D00AD85D9 /* GeorgeCell.m in Sources */,
 				DC346E8A1B04952200AD85D9 /* CharactersViewController.m in Sources */,
+				9B4E60181B0DF148008AD776 /* MyLabel.m in Sources */,
 				9BFD3CEE1B0CBFD3005EFB23 /* EditCharacterViewController.m in Sources */,
 				DC346E5E1B047AE200AD85D9 /* AppDelegate.m in Sources */,
 				DC346E871B0484F000AD85D9 /* CharacterModel.m in Sources */,

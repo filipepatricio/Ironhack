@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8jT-Hf-I2C">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -102,18 +103,15 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q4v-lf-Fs9">
                                 <rect key="frame" x="35" y="87" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="q4v-lf-Fs9" secondAttribute="height" multiplier="1:1" id="vfs-uF-H1z"/>
+                                </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dYl-eW-Jdu">
                                 <rect key="frame" x="35" y="390" width="250" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgY-MB-4wh">
-                                <rect key="frame" x="35" y="361" width="51" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hea-D5-8uT">
                                 <rect key="frame" x="35" y="492" width="250" height="30"/>
                                 <color key="backgroundColor" red="0.89818102904040409" green="0.0083269199620889314" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -125,21 +123,32 @@
                                     <action selector="actionDelete:" destination="SO9-gB-yFE" eventType="touchUpInside" id="T0N-z1-xOL"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgY-MB-4wh" customClass="MyLabel">
+                                <rect key="frame" x="35" y="345" width="250" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="PEY-li-5r6"/>
+                                    <constraint firstAttribute="height" constant="37" id="WRT-DV-ltk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="q4v-lf-Fs9" secondAttribute="trailing" constant="19" id="2ji-75-ljp"/>
                             <constraint firstItem="q4v-lf-Fs9" firstAttribute="leading" secondItem="BNc-d3-XBU" secondAttribute="leadingMargin" constant="19" id="3qe-wn-c1Q"/>
                             <constraint firstItem="q4v-lf-Fs9" firstAttribute="centerX" secondItem="BNc-d3-XBU" secondAttribute="centerX" id="80a-br-TCf"/>
-                            <constraint firstItem="LMe-1T-Gjb" firstAttribute="top" secondItem="q4v-lf-Fs9" secondAttribute="bottom" constant="231" id="Dk7-CS-C89"/>
+                            <constraint firstItem="dYl-eW-Jdu" firstAttribute="top" secondItem="q4v-lf-Fs9" secondAttribute="bottom" constant="53" id="87c-7L-TQQ"/>
                             <constraint firstItem="jgY-MB-4wh" firstAttribute="leading" secondItem="dYl-eW-Jdu" secondAttribute="leading" id="EqE-Ge-6WA"/>
                             <constraint firstItem="jgY-MB-4wh" firstAttribute="leading" secondItem="q4v-lf-Fs9" secondAttribute="leading" id="Kmz-UE-s3D"/>
                             <constraint firstItem="hea-D5-8uT" firstAttribute="leading" secondItem="dYl-eW-Jdu" secondAttribute="leading" id="Lcr-eN-Cxd"/>
                             <constraint firstItem="dYl-eW-Jdu" firstAttribute="top" secondItem="jgY-MB-4wh" secondAttribute="bottom" constant="8" symbolic="YES" id="Ox0-78-EUW"/>
                             <constraint firstItem="hea-D5-8uT" firstAttribute="trailing" secondItem="dYl-eW-Jdu" secondAttribute="trailing" id="Qbv-Yz-yg0"/>
-                            <constraint firstItem="jgY-MB-4wh" firstAttribute="top" secondItem="q4v-lf-Fs9" secondAttribute="bottom" constant="24" id="Z48-vP-XJw"/>
                             <constraint firstItem="LMe-1T-Gjb" firstAttribute="top" secondItem="hea-D5-8uT" secondAttribute="bottom" constant="46" id="cH9-nz-KUT"/>
                             <constraint firstItem="q4v-lf-Fs9" firstAttribute="top" secondItem="uSn-uq-M7a" secondAttribute="bottom" constant="23" id="dsc-dd-Byd"/>
                             <constraint firstItem="dYl-eW-Jdu" firstAttribute="trailing" secondItem="q4v-lf-Fs9" secondAttribute="trailing" id="esa-Sb-uxI"/>
+                            <constraint firstAttribute="centerX" secondItem="jgY-MB-4wh" secondAttribute="centerX" id="gUV-qm-0lt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Character" id="EO6-3z-kuk">
