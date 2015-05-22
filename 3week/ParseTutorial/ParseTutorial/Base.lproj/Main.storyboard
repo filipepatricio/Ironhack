@@ -192,7 +192,7 @@
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sAL-EY-34z">
                                     <size key="itemSize" width="154" height="154"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="50" height="50"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
@@ -234,6 +234,30 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Footer" id="dSK-k7-6kq">
+                                    <rect key="frame" x="0.0" y="154" width="320" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nOf-So-9bN">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                            <color key="backgroundColor" red="0.1298765274" green="0.66923652040000003" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                            <state key="normal" title="Refresh">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="actionRefresh:" destination="5X0-T4-LKa" eventType="touchUpInside" id="ogj-M5-pZc"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="nOf-So-9bN" secondAttribute="bottom" id="QIB-Yf-EM8"/>
+                                        <constraint firstAttribute="trailing" secondItem="nOf-So-9bN" secondAttribute="trailing" id="WoJ-Lv-vDI"/>
+                                        <constraint firstItem="nOf-So-9bN" firstAttribute="leading" secondItem="dSK-k7-6kq" secondAttribute="leading" id="bBY-iY-XTP"/>
+                                        <constraint firstItem="nOf-So-9bN" firstAttribute="top" secondItem="dSK-k7-6kq" secondAttribute="top" id="mXh-qK-q8x"/>
+                                    </constraints>
+                                </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="5X0-T4-LKa" id="z99-kx-N28"/>
                                     <outlet property="delegate" destination="5X0-T4-LKa" id="7k2-I6-WqZ"/>

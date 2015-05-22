@@ -13,7 +13,8 @@
 @interface PhotoStreamViewController ()<UICollectionViewDataSource, UICollectionViewDelegate,
     UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (strong, nonatomic) NSMutableArray *photos;
+@property (strong, nonatomic) NSMutableArray *photos; //OF UIImages
+@property (strong, nonatomic) NSMutableArray *photoObjects; //OF PFObjects
 @end
 
 @implementation PhotoStreamViewController
@@ -25,6 +26,13 @@
     return _photos;
 }
 
+-(NSMutableArray *)photoObjects
+{
+    if(!_photoObjects)
+        _photoObjects = [[NSMutableArray alloc]init];
+    return _photoObjects;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -34,7 +42,8 @@
 
 -(void)loadPhotos
 {
-    PFQuery *query = [PFQuery queryWithClassName:@"StreamPhotoObject"];
+    [self.photos removeAllObjects];
+    PFQuery *query = [PFQuery queryWithClassName:@"StreamPhoto"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             // The find succeeded.
@@ -42,6 +51,7 @@
             // Do something with the found objects
             for (PFObject *photo in objects) {
                 [self getPhoto:photo];
+                [self.photoObjects addObject:photo];
             }
             
         } else {
@@ -73,15 +83,22 @@
     return self.photos.count;
 }
 
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionReusableView *footer = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"Footer" forIndexPath:indexPath];
+    return footer;
+}
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
     PhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoImageCell" forIndexPath:indexPath];
     cell.photoImageView.image = self.photos[indexPath.row];
+    PFObject *photoObject = self.photoObjects[indexPath.row];
+    PFUser *user = photoObject[@"user"];
     
     return cell;
 }
-
 
 
 - (IBAction)actionUploadPhoto:(id)sender
@@ -95,6 +112,16 @@
     [self presentViewController:imagePicker animated:YES completion:nil];
 }
 
+- (IBAction)actionRefresh:(id)sender
+{
+    [self loadPhotos];
+}
+
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
+{
+    return CGSizeMake(self.view.frame.size.width, 100);
+}
 
 #pragma mark UIImagePicker
 
@@ -105,7 +132,7 @@
     NSData *imageData = UIImagePNGRepresentation(selectedPhoto);
     PFFile *imageFile = [PFFile fileWithName:@"image.png" data:imageData];
     
-    PFObject *photo = [PFObject objectWithClassName:@"StreamPhotoObject"];
+    PFObject *photo = [PFObject objectWithClassName:@"StreamPhoto"];
     photo[@"imageName"] = @"Stream Image";
     photo[@"imageFile"] = imageFile;
     photo[@"user"] = [PFUser currentUser];

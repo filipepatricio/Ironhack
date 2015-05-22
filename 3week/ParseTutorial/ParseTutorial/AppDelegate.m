@@ -27,6 +27,9 @@
     [Parse setApplicationId:@"fxIev7lDEVjIi1gSJXdHp4FDt9SqCZE3FcqPVF9k"
                   clientKey:@"kLbVgtvhzikZceNxCibeuqqAFdtyiaLU5dnh3cIx"];
     
+//    [Parse setApplicationId:@"YOUR_APP_ID"
+//                  clientKey:@"YOUR_CLIENT_KEY"];
+    
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
