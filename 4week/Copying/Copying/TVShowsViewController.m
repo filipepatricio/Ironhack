@@ -8,9 +8,12 @@
 
 #import "TVShowsViewController.h"
 #import "TVShowModel.h"
+#import "PersistenceManager.h"
+#import "ShowDetailViewController.h"
 
-@interface TVShowsViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface TVShowsViewController () <UITableViewDataSource, UITableViewDelegate, CopyTVShow>
 @property (strong, nonatomic) NSMutableArray *tvShows; // OF MovieModel
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
 
 @implementation TVShowsViewController
@@ -20,7 +23,7 @@
     if(!_tvShows)
     {
         //LOAD movies from documents directory
-        _tvShows = [NSKeyedUnarchiver unarchiveObjectWithFile:[self moviesFile]];
+        _tvShows = [NSKeyedUnarchiver unarchiveObjectWithFile:[PersistenceManager pathForFileWithClass:[TVShowModel class]]];
         if(!_tvShows)
         {
             _tvShows = [[NSMutableArray alloc] init];
@@ -59,40 +62,27 @@
     return cell;
 }
 
--(NSString *)moviesFile
-{
-    
-    //NSCachesDirectory - it may be erasable
-    //NSDocumentDirectory - it's permanent
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths firstObject];
-    return [documentsDirectory stringByAppendingString:@"/tvShows.dat"];
-}
-
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Copy movies array then add to table
-    
-    TVShowModel *selectedTVShow = self.tvShows[indexPath.row];
-    
-    TVShowModel *copyTVShow = [selectedTVShow copy];
 
-    NSLog(@"%d", copyTVShow == selectedTVShow);
-    
-    copyTVShow.title = [copyTVShow.title stringByAppendingString:@" (Copied)"];
-    
-    NSLog(@"%d", [copyTVShow isEqual:selectedTVShow]);
-    
-    [self.tvShows insertObject:copyTVShow atIndex:indexPath.row+1];
-    
-    //SAVE movies from documents directory
-    [NSKeyedArchiver archiveRootObject:self.tvShows toFile:[self moviesFile]];
-    
-    [tableView reloadData];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    ShowDetailViewController *showDetailVC = segue.destinationViewController;
+    showDetailVC.delegate = self;
+    showDetailVC.index = self.tableView.indexPathForSelectedRow.row;
+    showDetailVC.tvShow = self.tvShows[showDetailVC.index];
 }
 
 
+-(void)ShowDetailViewController:(UIViewController*)viewController didCopyTVShow:(TVShowModel*)tvShow atIndex:(NSUInteger)index
+{
+    [PersistenceManager copyObjectFromArray:self.tvShows index:index];
+    
+    [self.tableView reloadData];
+}
 
 
 /*

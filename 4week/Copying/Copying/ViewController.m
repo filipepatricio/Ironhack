@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "MovieModel.h"
+#import "PersistenceManager.h"
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) NSMutableArray *movies; // OF MovieModel
@@ -20,7 +21,7 @@
     if(!_movies)
     {
 //LOAD movies from documents directory
-        _movies = [NSKeyedUnarchiver unarchiveObjectWithFile:[self moviesFile]];
+        _movies = [NSKeyedUnarchiver unarchiveObjectWithFile:[PersistenceManager pathForFileWithClass:[MovieModel class]]];
         if(!_movies)
         {
             _movies = [[NSMutableArray alloc] init];
@@ -63,34 +64,13 @@
     return cell;
 }
 
--(NSString *)moviesFile
-{
-    
-    //NSCachesDirectory - it may be erasable
-    //NSDocumentDirectory - it's permanent
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths firstObject];
-    return [documentsDirectory stringByAppendingString:@"/movies.dat"];
-}
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Copy movies array then add to table
     
-    MovieModel *selectedMovie = self.movies[indexPath.row];
-    
-    MovieModel *copyMovie = [selectedMovie copy];
-    
-    NSLog(@"%d", [copyMovie isEqual:selectedMovie]);
-    
-    //Add word (Copied) to movie name
-    copyMovie.name = [copyMovie.name stringByAppendingString:@" (Copied)"];
-    
-    [self.movies insertObject:copyMovie atIndex:indexPath.row+1];
-    
-//SAVE movies from documents directory
-    [NSKeyedArchiver archiveRootObject:self.movies toFile:[self moviesFile]];
+    [PersistenceManager copyObjectFromArray:self.movies index:indexPath.row];
     
     [tableView reloadData];
 }

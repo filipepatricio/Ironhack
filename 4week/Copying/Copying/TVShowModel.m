@@ -11,4 +11,12 @@
 
 @implementation TVShowModel
 
++(NSDictionary *)JSONKeyPathsByPropertyKey
+{
+    return @{
+             @"title" : @"title",
+             @"numberOfSeasons" : @"numberOfSeasons",
+             };
+}
+
 @end

@@ -18,6 +18,8 @@
 		9B04C35D1B13152E0097F194 /* MovieModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B04C35C1B13152E0097F194 /* MovieModel.m */; };
 		9BEF528B1B13513600E5EBDB /* TVShowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEF528A1B13513600E5EBDB /* TVShowModel.m */; };
 		9BEF528E1B13529B00E5EBDB /* TVShowsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEF528D1B13529B00E5EBDB /* TVShowsViewController.m */; };
+		9BEF52931B13686700E5EBDB /* PersistenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEF52921B13686700E5EBDB /* PersistenceManager.m */; };
+		9BEF52981B13776C00E5EBDB /* ShowDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEF52971B13776C00E5EBDB /* ShowDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,10 @@
 		9BEF528A1B13513600E5EBDB /* TVShowModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVShowModel.m; sourceTree = "<group>"; };
 		9BEF528C1B13529B00E5EBDB /* TVShowsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVShowsViewController.h; sourceTree = "<group>"; };
 		9BEF528D1B13529B00E5EBDB /* TVShowsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVShowsViewController.m; sourceTree = "<group>"; };
+		9BEF52911B13686700E5EBDB /* PersistenceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistenceManager.h; sourceTree = "<group>"; };
+		9BEF52921B13686700E5EBDB /* PersistenceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistenceManager.m; sourceTree = "<group>"; };
+		9BEF52961B13776C00E5EBDB /* ShowDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowDetailViewController.h; sourceTree = "<group>"; };
+		9BEF52971B13776C00E5EBDB /* ShowDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowDetailViewController.m; sourceTree = "<group>"; };
 		9C2633152A67456FF5F1B617 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBE52292C895EDCD27E7058E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,12 +120,12 @@
 		9B04C32E1B1303B60097F194 /* Copying */ = {
 			isa = PBXGroup;
 			children = (
+				9BEF52951B13691300E5EBDB /* Utils */,
+				9BEF52941B1368E900E5EBDB /* Resources */,
 				9B04C3331B1303B60097F194 /* AppDelegate.h */,
 				9B04C3341B1303B60097F194 /* AppDelegate.m */,
 				9BEF528F1B1352E700E5EBDB /* Controllers */,
-				9B04C3391B1303B60097F194 /* Main.storyboard */,
 				9B04C33C1B1303B60097F194 /* Images.xcassets */,
-				9B04C33E1B1303B60097F194 /* LaunchScreen.xib */,
 				9B04C32F1B1303B60097F194 /* Supporting Files */,
 				9BEF52901B1352F800E5EBDB /* Models */,
 			);
@@ -159,6 +165,8 @@
 				9B04C3371B1303B60097F194 /* ViewController.m */,
 				9BEF528C1B13529B00E5EBDB /* TVShowsViewController.h */,
 				9BEF528D1B13529B00E5EBDB /* TVShowsViewController.m */,
+				9BEF52961B13776C00E5EBDB /* ShowDetailViewController.h */,
+				9BEF52971B13776C00E5EBDB /* ShowDetailViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -172,6 +180,24 @@
 				9BEF528A1B13513600E5EBDB /* TVShowModel.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		9BEF52941B1368E900E5EBDB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9B04C3391B1303B60097F194 /* Main.storyboard */,
+				9B04C33E1B1303B60097F194 /* LaunchScreen.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		9BEF52951B13691300E5EBDB /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9BEF52911B13686700E5EBDB /* PersistenceManager.h */,
+				9BEF52921B13686700E5EBDB /* PersistenceManager.m */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,11 +335,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BEF52981B13776C00E5EBDB /* ShowDetailViewController.m in Sources */,
 				9B04C3381B1303B60097F194 /* ViewController.m in Sources */,
 				9B04C3351B1303B60097F194 /* AppDelegate.m in Sources */,
 				9B04C3321B1303B60097F194 /* main.m in Sources */,
 				9B04C35D1B13152E0097F194 /* MovieModel.m in Sources */,
 				9BEF528B1B13513600E5EBDB /* TVShowModel.m in Sources */,
+				9BEF52931B13686700E5EBDB /* PersistenceManager.m in Sources */,
 				9BEF528E1B13529B00E5EBDB /* TVShowsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
