@@ -20,13 +20,18 @@
 {
     if(!_movies)
     {
-        _movies = [[NSMutableArray alloc] init];
-        for(int i = 0; i < 5; i++)
+//LOAD movies from documents directory
+        _movies = [NSKeyedUnarchiver unarchiveObjectWithFile:[self moviesFile]];
+        if(!_movies)
         {
-            MovieModel *movie = [[MovieModel alloc]init];
-            movie.name = [NSString stringWithFormat:@"Movie %d", i];
-            movie.director = [NSString stringWithFormat:@"Director %d", i];
-            [_movies addObject:movie];
+            _movies = [[NSMutableArray alloc] init];
+            for(int i = 0; i < 5; i++)
+            {
+                MovieModel *movie = [[MovieModel alloc]init];
+                movie.name = [NSString stringWithFormat:@"Movie %d", i];
+                movie.director = [NSString stringWithFormat:@"Director %d", i];
+                [_movies addObject:movie];
+            }
         }
     }
     return _movies;
@@ -35,6 +40,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+
     
 }
 
@@ -57,6 +64,16 @@
     return cell;
 }
 
+-(NSString *)moviesFile
+{
+    
+    //NSCachesDirectory - it may be erasable
+    //NSDocumentDirectory - it's permanent
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths firstObject];
+    return [documentsDirectory stringByAppendingString:@"/movies.dat"];
+}
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -66,7 +83,13 @@
     
     MovieModel *copyMovie = [selectedMovie copy];
     
+    //Add word (Copied) to movie name
+    copyMovie.name = [copyMovie.name stringByAppendingString:@" (Copied)"];
+    
     [self.movies insertObject:copyMovie atIndex:indexPath.row+1];
+    
+//SAVE movies from documents directory
+    [NSKeyedArchiver archiveRootObject:self.movies toFile:[self moviesFile]];
     
     [tableView reloadData];
 }

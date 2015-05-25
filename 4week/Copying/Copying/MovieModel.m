@@ -8,7 +8,7 @@
 
 #import "MovieModel.h"
 
-@interface MovieModel () <NSCopying>
+@interface MovieModel () <NSCopying, NSCoding>
 
 @end
 
@@ -24,6 +24,23 @@
     }
     
     return copyMovie;
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.name forKey:@"name"];
+    [aCoder encodeObject:self.director forKey:@"director"];
+}
+
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [self init];
+    if(self)
+    {
+        self.name = [aDecoder decodeObjectForKey:@"name"];
+        self.director = [aDecoder decodeObjectForKey:@"director"];
+    }
+    return self;
 }
 
 @end
