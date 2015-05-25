@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "Beer.h"
 #import "MovieModel.h"
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -82,6 +81,8 @@
     MovieModel *selectedMovie = self.movies[indexPath.row];
     
     MovieModel *copyMovie = [selectedMovie copy];
+    
+    NSLog(@"%d", [copyMovie isEqual:selectedMovie]);
     
     //Add word (Copied) to movie name
     copyMovie.name = [copyMovie.name stringByAppendingString:@" (Copied)"];

@@ -43,4 +43,36 @@
     return self;
 }
 
+- (BOOL)isEqual:(id)other
+{
+    if (other == self) {
+        return YES;
+    } else if (![super isEqual:other]) {
+        return NO;
+    } else if(![other isKindOfClass:[MovieModel class]]){
+        return NO;
+    }
+    return [self isEqualToMovie:other];
+}
+
+- (BOOL)isEqualToMovie:(MovieModel*)otherMovie
+{
+    if ([self.name isEqualToString:otherMovie.name])
+    {
+        return YES;
+    }
+    else if ([self.director isEqualToString:otherMovie.director])
+    {
+        return YES;
+    }
+    else
+        return NO;
+}
+
+- (NSUInteger)hash
+{
+    NSUInteger hash = self.name.hash ^ self.director.hash;
+    return hash;
+}
+
 @end
