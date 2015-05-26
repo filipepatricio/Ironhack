@@ -24,7 +24,7 @@
     return show;
 }
 
-+(TVShow*)findTVShowWithTitle:(NSString *)title
++(TVShow*)getTVShowWithTitle:(NSString *)title
 {
     TVShow *show = nil;
     
@@ -37,6 +37,18 @@
         show = [results firstObject];
     
     return show;
+}
+
+
++(NSArray*)getAllTVShows
+{
+    
+    NSManagedObjectContext *moc = [TVShowsCoreDataManager sharedCoreDataManager].managedObjectContext;
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"TVShow"];
+    fetchRequest.predicate = [NSPredicate predicateWithValue:YES];
+    NSArray *results = [moc executeFetchRequest:fetchRequest error:nil];
+    
+    return results;
 }
 
 @end

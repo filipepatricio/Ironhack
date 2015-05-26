@@ -12,7 +12,7 @@
 @interface TVShow (Manager)
 
 +(TVShow*)createTVShowWithTitle:(NSString *)title numberOfSeasons:(NSInteger)numberOfSeasons;
-
-+(TVShow*)findTVShowWithTitle:(NSString *)title;
++(TVShow*)getTVShowWithTitle:(NSString *)title;
++(NSArray*)getAllTVShows;
 
 @end
