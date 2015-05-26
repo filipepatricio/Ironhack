@@ -19,6 +19,14 @@
 {
     self.tvShows = [TVShow getAllTVShows];
     self.refreshControl = [[UIRefreshControl alloc] init];
+    
+    [self.refreshControl addTarget:self action:@selector(refreshDidChange:) forControlEvents:UIControlEventValueChanged];
+}
+
+-(void)refreshDidChange:(id)sender
+{
+    [self.tableView reloadData];
+    [self.refreshControl endRefreshing];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
