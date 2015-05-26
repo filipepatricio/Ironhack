@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KBc-RF-ydp">
+                                <rect key="frame" x="16" y="78" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search for Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dW6-wm-R0a">
+                                <rect key="frame" x="16" y="228" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number Of Seasons" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tcf-qi-8Fz">
+                                <rect key="frame" x="16" y="116" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pmj-ac-cUE">
+                                <rect key="frame" x="16" y="154" width="288" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Create">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionAddTvShow:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NQ9-nh-FBx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6uw-82-BtZ">
+                                <rect key="frame" x="16" y="266" width="288" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Read">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionAddTvShow:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WAs-Dn-ags"/>
+                                    <action selector="actionSearchForTVShow:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qi8-BB-aMC"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNj-mX-h6D">
+                                <rect key="frame" x="16" y="304" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number Of Seasons: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CqA-dc-4xP">
+                                <rect key="frame" x="16" y="333" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vNj-mX-h6D" firstAttribute="trailing" secondItem="6uw-82-BtZ" secondAttribute="trailing" id="07Z-TA-tp3"/>
+                            <constraint firstItem="CqA-dc-4xP" firstAttribute="top" secondItem="vNj-mX-h6D" secondAttribute="bottom" constant="8" symbolic="YES" id="10z-3D-a1B"/>
+                            <constraint firstItem="6uw-82-BtZ" firstAttribute="leading" secondItem="dW6-wm-R0a" secondAttribute="leading" id="2RG-Br-Sza"/>
+                            <constraint firstItem="dW6-wm-R0a" firstAttribute="top" secondItem="pmj-ac-cUE" secondAttribute="bottom" constant="44" id="4eO-VG-2jz"/>
+                            <constraint firstItem="vNj-mX-h6D" firstAttribute="leading" secondItem="CqA-dc-4xP" secondAttribute="leading" id="5uD-B2-drv"/>
+                            <constraint firstItem="dW6-wm-R0a" firstAttribute="leading" secondItem="pmj-ac-cUE" secondAttribute="leading" id="7Rr-fZ-yle"/>
+                            <constraint firstItem="vNj-mX-h6D" firstAttribute="trailing" secondItem="CqA-dc-4xP" secondAttribute="trailing" id="GG7-eD-WpC"/>
+                            <constraint firstItem="Tcf-qi-8Fz" firstAttribute="trailing" secondItem="pmj-ac-cUE" secondAttribute="trailing" id="GRI-R1-SOu"/>
+                            <constraint firstItem="6uw-82-BtZ" firstAttribute="top" secondItem="dW6-wm-R0a" secondAttribute="bottom" constant="8" symbolic="YES" id="M9B-YW-Jy9"/>
+                            <constraint firstItem="vNj-mX-h6D" firstAttribute="leading" secondItem="6uw-82-BtZ" secondAttribute="leading" id="QFV-Ys-6a8"/>
+                            <constraint firstItem="KBc-RF-ydp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="58" id="Qf3-3p-dhQ"/>
+                            <constraint firstItem="Tcf-qi-8Fz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ZOu-M1-Xc9"/>
+                            <constraint firstItem="Tcf-qi-8Fz" firstAttribute="trailing" secondItem="KBc-RF-ydp" secondAttribute="trailing" id="bru-Jr-fIe"/>
+                            <constraint firstItem="6uw-82-BtZ" firstAttribute="trailing" secondItem="dW6-wm-R0a" secondAttribute="trailing" id="dqr-ND-LAt"/>
+                            <constraint firstItem="dW6-wm-R0a" firstAttribute="trailing" secondItem="pmj-ac-cUE" secondAttribute="trailing" id="glK-fJ-y8b"/>
+                            <constraint firstItem="vNj-mX-h6D" firstAttribute="top" secondItem="6uw-82-BtZ" secondAttribute="bottom" constant="8" symbolic="YES" id="kgg-tj-q0e"/>
+                            <constraint firstItem="Tcf-qi-8Fz" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="lAF-1P-RYd"/>
+                            <constraint firstItem="Tcf-qi-8Fz" firstAttribute="leading" secondItem="KBc-RF-ydp" secondAttribute="leading" id="mql-Ew-LAE"/>
+                            <constraint firstItem="pmj-ac-cUE" firstAttribute="top" secondItem="Tcf-qi-8Fz" secondAttribute="bottom" constant="8" id="nMR-oy-zeC"/>
+                            <constraint firstItem="Tcf-qi-8Fz" firstAttribute="top" secondItem="KBc-RF-ydp" secondAttribute="bottom" constant="8" symbolic="YES" id="nlo-ML-xHL"/>
+                            <constraint firstItem="pmj-ac-cUE" firstAttribute="leading" secondItem="Tcf-qi-8Fz" secondAttribute="leading" id="twi-az-QqT"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="numberOfSeasonsLabel" destination="CqA-dc-4xP" id="axa-cg-FX8"/>
+                        <outlet property="numberOfSeasonsTextField" destination="Tcf-qi-8Fz" id="xgh-OD-Qdy"/>
+                        <outlet property="searchTitleTextField" destination="dW6-wm-R0a" id="7co-a9-V6Q"/>
+                        <outlet property="titleLabel" destination="vNj-mX-h6D" id="3fK-Lj-cu3"/>
+                        <outlet property="titleTextField" destination="KBc-RF-ydp" id="DHR-GX-828"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>

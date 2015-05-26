@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="XUG-mL-fRc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Movies-->
@@ -118,7 +119,13 @@
                             <constraint firstAttribute="trailing" secondItem="621-x1-jZr" secondAttribute="trailing" id="bgz-6D-1Qg"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="iA2-cP-tOq"/>
+                    <navigationItem key="navigationItem" id="iA2-cP-tOq">
+                        <barButtonItem key="rightBarButtonItem" title="Sort" id="YL7-q5-Vzt">
+                            <connections>
+                                <action selector="actionSort:" destination="2a7-60-uy8" id="EPB-BJ-klt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="tableView" destination="621-x1-jZr" id="Alg-FC-w7P"/>
@@ -170,19 +177,40 @@
                                     <action selector="actionCopy:" destination="vLU-ko-3Kq" eventType="touchUpInside" id="QlS-IG-XTu"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p3R-jA-Qyp">
+                                <rect key="frame" x="51" y="269" width="218" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q0i-hB-g2T">
+                                <rect key="frame" x="137" y="328" width="46" height="30"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionSave:" destination="vLU-ko-3Kq" eventType="touchUpInside" id="oQw-Cq-5rY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Q0i-hB-g2T" firstAttribute="trailing" secondItem="ui5-5w-NWH" secondAttribute="trailing" id="39q-Kf-wiR"/>
+                            <constraint firstItem="p3R-jA-Qyp" firstAttribute="centerY" secondItem="tFv-yS-28D" secondAttribute="centerY" id="8ku-1M-sBG"/>
                             <constraint firstItem="ui5-5w-NWH" firstAttribute="top" secondItem="2rS-Zl-h8g" secondAttribute="bottom" constant="25" id="90C-Kc-m7S"/>
+                            <constraint firstItem="Q0i-hB-g2T" firstAttribute="top" secondItem="p3R-jA-Qyp" secondAttribute="bottom" constant="29" id="Bzs-xm-pUj"/>
                             <constraint firstItem="2rS-Zl-h8g" firstAttribute="leading" secondItem="lmJ-4r-Sci" secondAttribute="leading" id="CzD-PV-QhX"/>
                             <constraint firstItem="lmJ-4r-Sci" firstAttribute="top" secondItem="c5K-l5-ObF" secondAttribute="bottom" constant="34" id="GKC-I5-gsP"/>
+                            <constraint firstItem="Q0i-hB-g2T" firstAttribute="leading" secondItem="ui5-5w-NWH" secondAttribute="leading" id="c1s-52-DJM"/>
                             <constraint firstItem="2rS-Zl-h8g" firstAttribute="centerX" secondItem="tFv-yS-28D" secondAttribute="centerX" constant="-2" id="f19-Kq-0Ix"/>
+                            <constraint firstItem="p3R-jA-Qyp" firstAttribute="centerX" secondItem="ui5-5w-NWH" secondAttribute="centerX" id="fvx-sD-bcp"/>
                             <constraint firstItem="2rS-Zl-h8g" firstAttribute="top" secondItem="lmJ-4r-Sci" secondAttribute="bottom" constant="30" id="oU0-Z8-uYf"/>
+                            <constraint firstItem="p3R-jA-Qyp" firstAttribute="leading" secondItem="tFv-yS-28D" secondAttribute="leadingMargin" constant="35" id="uwx-Yc-sc2"/>
                             <constraint firstItem="2rS-Zl-h8g" firstAttribute="centerX" secondItem="ui5-5w-NWH" secondAttribute="centerX" constant="-2" id="wnu-sb-Ge1"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="nameTextField" destination="p3R-jA-Qyp" id="96n-SK-thj"/>
                         <outlet property="numberOfSeasonsLabel" destination="2rS-Zl-h8g" id="A1E-Vf-ZbR"/>
                         <outlet property="titleLabel" destination="lmJ-4r-Sci" id="AQZ-3X-94u"/>
                     </connections>

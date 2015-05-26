@@ -70,20 +70,29 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    ShowDetailViewController *showDetailVC = segue.destinationViewController;
-    showDetailVC.delegate = self;
-    showDetailVC.index = self.tableView.indexPathForSelectedRow.row;
-    showDetailVC.tvShow = self.tvShows[showDetailVC.index];
+    if([segue.identifier isEqualToString:@"ShowDetail"])
+    {
+        ShowDetailViewController *showDetailVC = segue.destinationViewController;
+        showDetailVC.delegate = self;
+        showDetailVC.index = self.tableView.indexPathForSelectedRow.row;
+        showDetailVC.tvShow = self.tvShows[showDetailVC.index];
+    }
 }
 
 
 -(void)ShowDetailViewController:(UIViewController*)viewController didCopyTVShow:(TVShowModel*)tvShow atIndex:(NSUInteger)index
 {
+    self.tvShows[index] = tvShow;
+    
     [PersistenceManager copyObjectFromArray:self.tvShows index:index];
     
     [self.tableView reloadData];
 }
 
+- (IBAction)actionSort:(id)sender
+{
+    
+}
 
 /*
 #pragma mark - Navigation
