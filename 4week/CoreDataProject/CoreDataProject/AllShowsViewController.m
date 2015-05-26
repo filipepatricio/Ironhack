@@ -22,6 +22,10 @@
     
     [self.refreshControl addTarget:self action:@selector(refreshDidChange:) forControlEvents:UIControlEventValueChanged];
 }
+- (IBAction)actionEdit:(id)sender
+{
+    self.tableView.editing = !self.tableView.editing;
+}
 
 -(void)refreshDidChange:(id)sender
 {
@@ -42,6 +46,13 @@
     cell.textLabel.text = show.title;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Number of seasons: %@", show.numberOfSeasons];
     return cell;
+}
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //add code here for when you hit delete
+    }
 }
 
 @end

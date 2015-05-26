@@ -120,7 +120,7 @@
             </objects>
             <point key="canvasLocation" x="1322" y="335"/>
         </scene>
-        <!--All Shows View Controller-->
+        <!--Title-->
         <scene sceneID="aey-5j-0b9">
             <objects>
                 <tableViewController id="Ed8-jE-jKD" customClass="AllShowsViewController" sceneMemberID="viewController">
@@ -155,6 +155,17 @@
                             <outlet property="delegate" destination="Ed8-jE-jKD" id="YAM-t3-90U"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="ytB-d5-TCV"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Title" id="VAV-9m-tXZ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="zLU-UH-J71">
+                            <connections>
+                                <action selector="actionEdit:" destination="Ed8-jE-jKD" id="DxL-ZH-A7K"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IKb-ED-DT2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
