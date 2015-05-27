@@ -8,6 +8,7 @@
 
 #import "AllShowsViewController.h"
 #import "TVShow+Manager.h"
+#import "DetailTVShowViewController.h"
 
 @interface AllShowsViewController()<UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) NSArray *tvShows; //Of TVShow
@@ -17,11 +18,19 @@
 
 -(void)viewDidLoad
 {
-    self.tvShows = [TVShow getAllTVShows];
-    self.refreshControl = [[UIRefreshControl alloc] init];
+    [super viewDidLoad];
     
+    self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refreshDidChange:) forControlEvents:UIControlEventValueChanged];
 }
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.tvShows = [TVShow getAllTVShows];
+    [self.tableView reloadData];
+}
+
 - (IBAction)actionEdit:(id)sender
 {
     self.tableView.editing = !self.tableView.editing;
@@ -38,7 +47,6 @@
     return self.tvShows.count;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
@@ -51,7 +59,19 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        //add code here for when you hit delete
+        TVShow *show = self.tvShows[indexPath.row];
+        [TVShow deleteTVShow:show];
+        self.tvShows = [TVShow getAllTVShows];
+        [self.tableView reloadData];
+    }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"DetailSegue"])
+    {
+        DetailTVShowViewController *detailTVShowVC = segue.destinationViewController;
+        detailTVShowVC.selectedTVShow = self.tvShows[self.tableView.indexPathForSelectedRow.row];
     }
 }
 

@@ -20,6 +20,7 @@
 		9BEF53781B14A11500E5EBDB /* TVShow+Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEF53771B14A11500E5EBDB /* TVShow+Manager.m */; };
 		9BEF537B1B14A7BF00E5EBDB /* TVShowsCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEF537A1B14A7BF00E5EBDB /* TVShowsCoreDataManager.m */; };
 		9BEF537E1B14BD3B00E5EBDB /* AllShowsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEF537D1B14BD3B00E5EBDB /* AllShowsViewController.m */; };
+		9BEF53B91B15AE9D00E5EBDB /* DetailTVShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEF53B81B15AE9D00E5EBDB /* DetailTVShowViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		9BEF537A1B14A7BF00E5EBDB /* TVShowsCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVShowsCoreDataManager.m; sourceTree = "<group>"; };
 		9BEF537C1B14BD3B00E5EBDB /* AllShowsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllShowsViewController.h; sourceTree = "<group>"; };
 		9BEF537D1B14BD3B00E5EBDB /* AllShowsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllShowsViewController.m; sourceTree = "<group>"; };
+		9BEF53B71B15AE9D00E5EBDB /* DetailTVShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailTVShowViewController.h; sourceTree = "<group>"; };
+		9BEF53B81B15AE9D00E5EBDB /* DetailTVShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTVShowViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +151,8 @@
 				9BEF534F1B1470D400E5EBDB /* ViewController.m */,
 				9BEF537C1B14BD3B00E5EBDB /* AllShowsViewController.h */,
 				9BEF537D1B14BD3B00E5EBDB /* AllShowsViewController.m */,
+				9BEF53B71B15AE9D00E5EBDB /* DetailTVShowViewController.h */,
+				9BEF53B81B15AE9D00E5EBDB /* DetailTVShowViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -263,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BEF53B91B15AE9D00E5EBDB /* DetailTVShowViewController.m in Sources */,
 				9BEF53751B1480E500E5EBDB /* TVShow.m in Sources */,
 				9BEF53501B1470D400E5EBDB /* ViewController.m in Sources */,
 				9BEF534D1B1470D400E5EBDB /* AppDelegate.m in Sources */,
@@ -468,6 +474,7 @@
 				9BEF53691B1470D500E5EBDB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9BEF536A1B1470D500E5EBDB /* Build configuration list for PBXNativeTarget "CoreDataProjectTests" */ = {
 			isa = XCConfigurationList;
@@ -476,6 +483,7 @@
 				9BEF536C1B1470D500E5EBDB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

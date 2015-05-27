@@ -14,5 +14,7 @@
 +(TVShow*)createTVShowWithTitle:(NSString *)title numberOfSeasons:(NSInteger)numberOfSeasons;
 +(TVShow*)getTVShowWithTitle:(NSString *)title;
 +(NSArray*)getAllTVShows;
++(void)deleteTVShow:(TVShow*)tvShow;
++(void)save;
 
 @end

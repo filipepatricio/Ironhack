@@ -120,7 +120,7 @@
             </objects>
             <point key="canvasLocation" x="1322" y="335"/>
         </scene>
-        <!--Title-->
+        <!--All Shows-->
         <scene sceneID="aey-5j-0b9">
             <objects>
                 <tableViewController id="Ed8-jE-jKD" customClass="AllShowsViewController" sceneMemberID="viewController">
@@ -129,7 +129,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="Iah-KL-f3O" detailTextLabel="WLP-zV-JP5" style="IBUITableViewCellStyleSubtitle" id="Len-r7-05R">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="Iah-KL-f3O" detailTextLabel="WLP-zV-JP5" style="IBUITableViewCellStyleSubtitle" id="Len-r7-05R">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Len-r7-05R" id="8NR-fN-Lhs">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -148,6 +148,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="GXj-TX-I73" kind="show" identifier="DetailSegue" id="9Te-xQ-CdR"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -158,7 +161,7 @@
                     <toolbarItems>
                         <barButtonItem title="Item" id="ytB-d5-TCV"/>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="Title" id="VAV-9m-tXZ">
+                    <navigationItem key="navigationItem" title="All Shows" id="VAV-9m-tXZ">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="zLU-UH-J71">
                             <connections>
                                 <action selector="actionEdit:" destination="Ed8-jE-jKD" id="DxL-ZH-A7K"/>
@@ -170,6 +173,77 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IKb-ED-DT2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1741" y="335"/>
+        </scene>
+        <!--DetailTV Show View Controller-->
+        <scene sceneID="MK4-dz-NmI">
+            <objects>
+                <viewController id="GXj-TX-I73" customClass="DetailTVShowViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Pbh-m5-TJn"/>
+                        <viewControllerLayoutGuide type="bottom" id="hYa-lb-TJV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xQ1-ve-r69">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Un-kT-eau">
+                                <rect key="frame" x="16" y="468" width="288" height="30"/>
+                                <color key="backgroundColor" red="0.89818102899999996" green="0.0083269199620000008" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionDelete:" destination="GXj-TX-I73" eventType="touchUpInside" id="rcf-ra-aEN"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V6Y-b8-oxd">
+                                <rect key="frame" x="16" y="135" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number Of Seasons" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gAJ-qN-Klp">
+                                <rect key="frame" x="16" y="173" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YBn-6O-C2R">
+                                <rect key="frame" x="16" y="226" width="288" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionSave:" destination="GXj-TX-I73" eventType="touchUpInside" id="JZZ-YO-yAP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hYa-lb-TJV" firstAttribute="top" secondItem="3Un-kT-eau" secondAttribute="bottom" constant="26" id="2ZZ-KP-gjv"/>
+                            <constraint firstItem="3Un-kT-eau" firstAttribute="leading" secondItem="YBn-6O-C2R" secondAttribute="leading" id="2iM-E7-MhF"/>
+                            <constraint firstItem="gAJ-qN-Klp" firstAttribute="top" secondItem="V6Y-b8-oxd" secondAttribute="bottom" constant="8" symbolic="YES" id="3Ve-WH-54z"/>
+                            <constraint firstItem="3Un-kT-eau" firstAttribute="trailing" secondItem="YBn-6O-C2R" secondAttribute="trailing" id="6Ol-ii-wU3"/>
+                            <constraint firstItem="gAJ-qN-Klp" firstAttribute="trailing" secondItem="xQ1-ve-r69" secondAttribute="trailingMargin" id="DBp-JN-D7o"/>
+                            <constraint firstItem="gAJ-qN-Klp" firstAttribute="trailing" secondItem="V6Y-b8-oxd" secondAttribute="trailing" id="NcJ-8C-EEo"/>
+                            <constraint firstItem="V6Y-b8-oxd" firstAttribute="top" secondItem="Pbh-m5-TJn" secondAttribute="bottom" constant="71" id="PjM-h1-FX1"/>
+                            <constraint firstItem="gAJ-qN-Klp" firstAttribute="leading" secondItem="V6Y-b8-oxd" secondAttribute="leading" id="bHh-BG-XAG"/>
+                            <constraint firstItem="YBn-6O-C2R" firstAttribute="trailing" secondItem="gAJ-qN-Klp" secondAttribute="trailing" id="bh6-pQ-aNp"/>
+                            <constraint firstItem="YBn-6O-C2R" firstAttribute="top" secondItem="gAJ-qN-Klp" secondAttribute="bottom" constant="23" id="rsm-ZW-XeM"/>
+                            <constraint firstItem="YBn-6O-C2R" firstAttribute="leading" secondItem="xQ1-ve-r69" secondAttribute="leadingMargin" id="swh-Rg-Bip"/>
+                            <constraint firstItem="YBn-6O-C2R" firstAttribute="leading" secondItem="gAJ-qN-Klp" secondAttribute="leading" id="y9P-zQ-gE6"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="numberOfSeasonsTextField" destination="gAJ-qN-Klp" id="359-22-9FX"/>
+                        <outlet property="titleTextField" destination="V6Y-b8-oxd" id="9ff-Oi-3hR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8jm-Xn-JEj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2150" y="335"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xpe-vw-Hc3">
