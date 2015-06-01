@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lgh-XS-fTr">
+                                <rect key="frame" x="145" y="28" width="310" height="310"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="310" id="snR-Tn-yuo"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Insert Url Here" translatesAutoresizingMaskIntoConstraints="NO" id="Dfr-oF-bkC">
+                                <rect key="frame" x="145" y="346" width="310" height="128"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X0U-iN-NNt">
+                                <rect key="frame" x="145" y="482" width="310" height="30"/>
+                                <state key="normal" title="Get Image">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionGetImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X3v-py-Ndg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Dfr-oF-bkC" firstAttribute="top" secondItem="lgh-XS-fTr" secondAttribute="bottom" constant="8" symbolic="YES" id="77G-36-60Y"/>
+                            <constraint firstItem="Dfr-oF-bkC" firstAttribute="trailing" secondItem="lgh-XS-fTr" secondAttribute="trailing" id="CdF-kA-Q2F"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lgh-XS-fTr" secondAttribute="bottom" constant="262" id="EWz-vn-wsd"/>
+                            <constraint firstItem="Dfr-oF-bkC" firstAttribute="leading" secondItem="X0U-iN-NNt" secondAttribute="leading" id="Jab-of-96D"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="X0U-iN-NNt" secondAttribute="bottom" constant="88" id="M2V-Yy-2xw"/>
+                            <constraint firstItem="Dfr-oF-bkC" firstAttribute="trailing" secondItem="X0U-iN-NNt" secondAttribute="trailing" id="Ozs-vf-pVl"/>
+                            <constraint firstItem="lgh-XS-fTr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="dWp-6f-DeY"/>
+                            <constraint firstItem="Dfr-oF-bkC" firstAttribute="leading" secondItem="lgh-XS-fTr" secondAttribute="leading" id="dql-jC-Diy"/>
+                            <constraint firstItem="lgh-XS-fTr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jf7-Rf-1tE"/>
+                            <constraint firstItem="X0U-iN-NNt" firstAttribute="top" secondItem="Dfr-oF-bkC" secondAttribute="bottom" constant="8" symbolic="YES" id="yWQ-EZ-6qk"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="lgh-XS-fTr" id="pU8-75-ah5"/>
+                        <outlet property="urlTextField" destination="Dfr-oF-bkC" id="qjD-nP-TUO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>

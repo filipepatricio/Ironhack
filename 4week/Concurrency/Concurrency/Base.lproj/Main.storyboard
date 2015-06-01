@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iny-Wf-Jij">
+                                <rect key="frame" x="49" y="28" width="222" height="30"/>
+                                <state key="normal" title="Get Image in backgroundThread">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionGetImageInBackgroundQueue:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Ze-OA-fur"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AnA-Kk-Loo">
+                                <rect key="frame" x="74" y="66" width="173" height="30"/>
+                                <state key="normal" title="Get Image in mainThread">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionGetImageInMainQueue:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q3k-YO-w0F"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I9H-cZ-kaa">
+                                <rect key="frame" x="40" y="119" width="240" height="240"/>
+                            </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="W7j-Y5-e17">
+                                <rect key="frame" x="150" y="367" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AnA-Kk-Loo" firstAttribute="top" secondItem="Iny-Wf-Jij" secondAttribute="bottom" constant="8" symbolic="YES" id="3dq-H9-RiM"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="I9H-cZ-kaa" secondAttribute="bottom" constant="209" id="8PR-mA-Jio"/>
+                            <constraint firstItem="W7j-Y5-e17" firstAttribute="centerX" secondItem="Iny-Wf-Jij" secondAttribute="centerX" id="EtR-w1-blX"/>
+                            <constraint firstItem="Iny-Wf-Jij" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="HUI-NQ-e12"/>
+                            <constraint firstItem="I9H-cZ-kaa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="24" id="SBa-YF-kSy"/>
+                            <constraint firstItem="AnA-Kk-Loo" firstAttribute="leading" secondItem="Iny-Wf-Jij" secondAttribute="leading" constant="25" id="SmL-bh-Lh0"/>
+                            <constraint firstItem="W7j-Y5-e17" firstAttribute="centerY" secondItem="I9H-cZ-kaa" secondAttribute="centerY" constant="138" id="aBD-im-LhI"/>
+                            <constraint firstItem="I9H-cZ-kaa" firstAttribute="top" secondItem="Iny-Wf-Jij" secondAttribute="bottom" constant="61" id="hJl-0Z-yma"/>
+                            <constraint firstItem="I9H-cZ-kaa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rsK-26-3CP"/>
+                            <constraint firstItem="Iny-Wf-Jij" firstAttribute="centerX" secondItem="I9H-cZ-kaa" secondAttribute="centerX" id="z55-Wo-WoP"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="W7j-Y5-e17" id="ReS-l5-1Bw"/>
+                        <outlet property="imageView" destination="I9H-cZ-kaa" id="n6J-My-IhN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
