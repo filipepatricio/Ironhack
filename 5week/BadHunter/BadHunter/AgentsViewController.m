@@ -8,6 +8,7 @@
 
 #import "AgentsViewController.h"
 #import "AgentEditViewController.h"
+#import "Agent.h"
 
 @interface AgentsViewController () <EditDataProtocol>
 
@@ -38,10 +39,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (NSManagedObject*)insertNewObject {
+- (Agent*)insertNewObject {
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    Agent *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
     
     return newManagedObject;
 }
@@ -52,9 +53,9 @@
     if ([[segue identifier] isEqualToString:@"CreateAgent"]) {
         self.managedObjectContext.undoManager.levelsOfUndo = 10;
         [self.managedObjectContext.undoManager beginUndoGrouping];
-        NSManagedObject *object = [self insertNewObject];
+        Agent *agent = [self insertNewObject];
         AgentEditViewController *controller = (AgentEditViewController *)[[segue destinationViewController] topViewController];
-        [controller setAgent:object];
+        [controller setAgent:agent];
         controller.delegate = self;
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;
@@ -99,8 +100,8 @@
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[object valueForKey:@"name"] description];
+    Agent *agent = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = agent.name;
 }
 
 #pragma mark - Fetched results controller
@@ -180,7 +181,7 @@
             break;
             
         case NSFetchedResultsChangeUpdate:
-            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+            [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
             
         case NSFetchedResultsChangeMove:

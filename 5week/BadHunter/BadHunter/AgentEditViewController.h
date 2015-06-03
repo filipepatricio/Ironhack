@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Agent.h"
 
 @protocol EditDataProtocol <NSObject>
 @required
@@ -16,7 +17,7 @@
 @interface AgentEditViewController : UIViewController
 
 @property (weak, nonatomic) id<EditDataProtocol> delegate ;
-@property (strong, nonatomic) id agent;
+@property (strong, nonatomic) Agent *agent;
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 
 @end

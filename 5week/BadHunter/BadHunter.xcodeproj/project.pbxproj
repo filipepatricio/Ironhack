@@ -16,6 +16,7 @@
 		9B31AD271B1EE66100F03C05 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B31AD261B1EE66100F03C05 /* Images.xcassets */; };
 		9B31AD2A1B1EE66100F03C05 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B31AD281B1EE66100F03C05 /* LaunchScreen.xib */; };
 		9B31AD361B1EE66100F03C05 /* BadHunterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B31AD351B1EE66100F03C05 /* BadHunterTests.m */; };
+		9B31AD441B1F438000F03C05 /* Agent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B31AD431B1F438000F03C05 /* Agent.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,8 @@
 		9B31AD2F1B1EE66100F03C05 /* BadHunterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BadHunterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B31AD341B1EE66100F03C05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B31AD351B1EE66100F03C05 /* BadHunterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BadHunterTests.m; sourceTree = "<group>"; };
+		9B31AD421B1F438000F03C05 /* Agent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Agent.h; sourceTree = "<group>"; };
+		9B31AD431B1F438000F03C05 /* Agent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Agent.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +89,8 @@
 		9B31AD121B1EE66100F03C05 /* BadHunter */ = {
 			isa = PBXGroup;
 			children = (
+				9B31AD421B1F438000F03C05 /* Agent.h */,
+				9B31AD431B1F438000F03C05 /* Agent.m */,
 				9B31AD171B1EE66100F03C05 /* AppDelegate.h */,
 				9B31AD181B1EE66100F03C05 /* AppDelegate.m */,
 				9B31AD1D1B1EE66100F03C05 /* AgentsViewController.h */,
@@ -230,6 +235,7 @@
 				9B31AD221B1EE66100F03C05 /* AgentEditViewController.m in Sources */,
 				9B31AD1F1B1EE66100F03C05 /* AgentsViewController.m in Sources */,
 				9B31AD191B1EE66100F03C05 /* AppDelegate.m in Sources */,
+				9B31AD441B1F438000F03C05 /* Agent.m in Sources */,
 				9B31AD161B1EE66100F03C05 /* main.m in Sources */,
 				9B31AD1C1B1EE66100F03C05 /* BadHunter.xcdatamodeld in Sources */,
 			);

@@ -8,6 +8,7 @@
 
 #import "AgentEditViewController.h"
 #import <CoreData/CoreData.h>
+#import "Agent.h"
 
 @interface AgentEditViewController ()
 
@@ -53,10 +54,8 @@
 {
     
     //Fill the changes on object KVC
-    NSManagedObject *object = self.agent;
-    [object setValue:self.baddieNameTextField.text forKey:@"name"];
-    [object setValue:[NSNumber numberWithDouble:self.destructionPowerStepper.value] forKey:@"destructionPower"];
-    [object setValue:[NSNumber numberWithDouble:self.motivationStepper.value] forKey:@"motivation"];
+    Agent *agent = self.agent;
+    agent.name = self.baddieNameTextField.text;
     
     [self.delegate didModifiedData:YES];
 }
@@ -69,7 +68,7 @@
 - (IBAction)actionDestructionPowerValueChanged:(UIStepper *)sender
 {
     NSNumber *value = [NSNumber numberWithDouble:sender.value];
-    self.destroyPowerLevelLabel.text = self.destroyPowerLevels[[value integerValue]];
+    self.agent.destructionPower = value;
     NSLog(@"%@", value);
 }
 
@@ -77,6 +76,7 @@
 {
     NSNumber *value = [NSNumber numberWithDouble:sender.value];
     self.motivationLabel.text = self.motivationValues[[value integerValue]];
+    self.agent.motivation = value;
     NSLog(@"%@", value);
 }
 
@@ -94,9 +94,10 @@
 - (void)configureView {
     // Update the user interface for the detail item.
     if (self.agent) {
-        self.detailDescriptionLabel.text = [[self.agent valueForKey:@"name"] description];
+        self.detailDescriptionLabel.text = ((Agent*)self.agent).name;
     }
 }
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -114,6 +115,36 @@
     self.motivationStepper.minimumValue = 0;
     self.motivationStepper.maximumValue = self.motivationValues.count - 1;
     
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self addObserver:self forKeyPath:@"agent.destructionPower" options:0 context:nil];
+    [self addObserver:self forKeyPath:@"agent.motivation" options:0 context:nil];
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+    [self removeObserver:self forKeyPath:@"agent.destructionPower"];
+    [self removeObserver:self forKeyPath:@"agent.motivation"];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if([keyPath isEqualToString:@"agent.destructionPower"])
+    {
+        NSNumber *value = self.agent.destructionPower;
+        self.destroyPowerLevelLabel.text = self.destroyPowerLevels[[value integerValue]];
+    }
+    else if([keyPath isEqualToString:@"agent.motivation"])
+    {
+        NSNumber *value = self.agent.motivation;
+        self.motivationLabel.text = self.motivationValues[[value integerValue]];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
