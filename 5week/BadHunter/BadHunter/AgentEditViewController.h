@@ -18,7 +18,6 @@
 
 @property (weak, nonatomic) id<EditDataProtocol> delegate ;
 @property (strong, nonatomic) Agent *agent;
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 
 @end
 

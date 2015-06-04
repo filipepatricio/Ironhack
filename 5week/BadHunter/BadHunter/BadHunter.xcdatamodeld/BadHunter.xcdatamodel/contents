@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Agent" representedClassName="Agent">
-        <attribute name="destructionPower" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="motivation" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String">
+        <attribute name="appraisal" transient="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="destructionPower" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="motivation" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" attributeType="String">
             <userInfo/>
         </attribute>
+        <attribute name="pictureUUID" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FreakType" inverseName="agents" inverseEntity="FreakType" syncable="YES"/>
+        <relationship name="domains" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Domain" inverseName="agents" inverseEntity="Domain" syncable="YES"/>
         <userInfo/>
     </entity>
+    <entity name="Domain" representedClassName="Domain" syncable="YES">
+        <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="agents" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="Agent" inverseName="domains" inverseEntity="Agent" syncable="YES"/>
+    </entity>
+    <entity name="FreakType" representedClassName="FreakType" syncable="YES">
+        <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="agents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Agent" inverseName="category" inverseEntity="Agent" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Agent" positionX="261" positionY="189" width="128" height="90"/>
+        <element name="Agent" positionX="261" positionY="189" width="128" height="150"/>
+        <element name="FreakType" positionX="522" positionY="225" width="128" height="73"/>
+        <element name="Domain" positionX="520" positionY="321" width="128" height="73"/>
     </elements>
 </model>

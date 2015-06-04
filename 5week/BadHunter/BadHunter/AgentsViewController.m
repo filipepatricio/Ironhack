@@ -8,7 +8,7 @@
 
 #import "AgentsViewController.h"
 #import "AgentEditViewController.h"
-#import "Agent.h"
+#import "Agent+Model.h"
 
 @interface AgentsViewController () <EditDataProtocol>
 
@@ -51,14 +51,18 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"CreateAgent"]) {
-        self.managedObjectContext.undoManager.levelsOfUndo = 10;
         [self.managedObjectContext.undoManager beginUndoGrouping];
         Agent *agent = [self insertNewObject];
         AgentEditViewController *controller = (AgentEditViewController *)[[segue destinationViewController] topViewController];
-        [controller setAgent:agent];
+        controller.agent = agent;
         controller.delegate = self;
-        controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
-        controller.navigationItem.leftItemsSupplementBackButton = YES;
+    }
+    else if ([[segue identifier] isEqualToString:@"EditAgent"]) {
+        [self.managedObjectContext.undoManager beginUndoGrouping];
+        Agent *agent = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForSelectedRow]];
+        AgentEditViewController *controller = (AgentEditViewController *)[[segue destinationViewController] topViewController];
+        controller.agent = agent;
+        controller.delegate = self;
     }
 }
 
@@ -112,23 +116,11 @@
         return _fetchedResultsController;
     }
     
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Agent" inManagedObjectContext:self.managedObjectContext];
-    [fetchRequest setEntity:entity];
-    
-    // Set the batch size to a suitable number.
-    [fetchRequest setFetchBatchSize:20];
-    
-    // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:NO];
-    NSArray *sortDescriptors = @[sortDescriptor];
-    
-    [fetchRequest setSortDescriptors:sortDescriptors];
-    
+    //NSFetchRequest *fetchRequest = [Agent fetchForAllAgents];
+    NSFetchRequest *fetchRequest = [Agent fetchForAllAgentsWithPredicate:[NSPredicate predicateWithFormat:@"%K < %@", kKeyDestructionPower ,@2]];
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
     aFetchedResultsController.delegate = self;
     self.fetchedResultsController = aFetchedResultsController;
     
@@ -212,7 +204,10 @@
         NSLog(@"%@ %d", error, isSaved);
     }
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if(self.presentedViewController)
+        [self dismissViewControllerAnimated:YES completion:nil];
+    else
+        [self.navigationController popViewControllerAnimated:YES];
 }
 
 /*

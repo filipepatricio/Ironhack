@@ -16,7 +16,13 @@
 		9B31AD271B1EE66100F03C05 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B31AD261B1EE66100F03C05 /* Images.xcassets */; };
 		9B31AD2A1B1EE66100F03C05 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B31AD281B1EE66100F03C05 /* LaunchScreen.xib */; };
 		9B31AD361B1EE66100F03C05 /* BadHunterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B31AD351B1EE66100F03C05 /* BadHunterTests.m */; };
-		9B31AD441B1F438000F03C05 /* Agent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B31AD431B1F438000F03C05 /* Agent.m */; };
+		9BFF4EFC1B205A4A00779118 /* Agent+Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFF4EFB1B205A4A00779118 /* Agent+Model.m */; };
+		9BFF4EFF1B205A7C00779118 /* Agent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFF4EFE1B205A7C00779118 /* Agent.m */; };
+		9BFF4F021B207FFA00779118 /* ImageMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFF4F011B207FFA00779118 /* ImageMapper.m */; };
+		9BFF4F051B209BDD00779118 /* FreakType.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFF4F041B209BDD00779118 /* FreakType.m */; };
+		9BFF4F0B1B209BDE00779118 /* Domain.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFF4F0A1B209BDE00779118 /* Domain.m */; };
+		9BFF4F0F1B20AA0500779118 /* FreakType+Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFF4F0E1B20AA0500779118 /* FreakType+Model.m */; };
+		9BFF4F121B20AD9C00779118 /* Domain+Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFF4F111B20AD9C00779118 /* Domain+Model.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,8 +52,20 @@
 		9B31AD2F1B1EE66100F03C05 /* BadHunterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BadHunterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B31AD341B1EE66100F03C05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B31AD351B1EE66100F03C05 /* BadHunterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BadHunterTests.m; sourceTree = "<group>"; };
-		9B31AD421B1F438000F03C05 /* Agent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Agent.h; sourceTree = "<group>"; };
-		9B31AD431B1F438000F03C05 /* Agent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Agent.m; sourceTree = "<group>"; };
+		9BFF4EFA1B205A4A00779118 /* Agent+Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Agent+Model.h"; sourceTree = "<group>"; };
+		9BFF4EFB1B205A4A00779118 /* Agent+Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Agent+Model.m"; sourceTree = "<group>"; };
+		9BFF4EFD1B205A7C00779118 /* Agent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Agent.h; sourceTree = "<group>"; };
+		9BFF4EFE1B205A7C00779118 /* Agent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Agent.m; sourceTree = "<group>"; };
+		9BFF4F001B207FFA00779118 /* ImageMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageMapper.h; sourceTree = "<group>"; };
+		9BFF4F011B207FFA00779118 /* ImageMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageMapper.m; sourceTree = "<group>"; };
+		9BFF4F031B209BDD00779118 /* FreakType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreakType.h; sourceTree = "<group>"; };
+		9BFF4F041B209BDD00779118 /* FreakType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreakType.m; sourceTree = "<group>"; };
+		9BFF4F091B209BDE00779118 /* Domain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Domain.h; sourceTree = "<group>"; };
+		9BFF4F0A1B209BDE00779118 /* Domain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Domain.m; sourceTree = "<group>"; };
+		9BFF4F0D1B20AA0500779118 /* FreakType+Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FreakType+Model.h"; sourceTree = "<group>"; };
+		9BFF4F0E1B20AA0500779118 /* FreakType+Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FreakType+Model.m"; sourceTree = "<group>"; };
+		9BFF4F101B20AD9C00779118 /* Domain+Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Domain+Model.h"; sourceTree = "<group>"; };
+		9BFF4F111B20AD9C00779118 /* Domain+Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Domain+Model.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,8 +107,7 @@
 		9B31AD121B1EE66100F03C05 /* BadHunter */ = {
 			isa = PBXGroup;
 			children = (
-				9B31AD421B1F438000F03C05 /* Agent.h */,
-				9B31AD431B1F438000F03C05 /* Agent.m */,
+				9BFF4F0C1B209BF500779118 /* Model */,
 				9B31AD171B1EE66100F03C05 /* AppDelegate.h */,
 				9B31AD181B1EE66100F03C05 /* AppDelegate.m */,
 				9B31AD1D1B1EE66100F03C05 /* AgentsViewController.h */,
@@ -102,6 +119,8 @@
 				9B31AD281B1EE66100F03C05 /* LaunchScreen.xib */,
 				9B31AD1A1B1EE66100F03C05 /* BadHunter.xcdatamodeld */,
 				9B31AD131B1EE66100F03C05 /* Supporting Files */,
+				9BFF4F001B207FFA00779118 /* ImageMapper.h */,
+				9BFF4F011B207FFA00779118 /* ImageMapper.m */,
 			);
 			path = BadHunter;
 			sourceTree = "<group>";
@@ -130,6 +149,25 @@
 				9B31AD341B1EE66100F03C05 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9BFF4F0C1B209BF500779118 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9BFF4EFA1B205A4A00779118 /* Agent+Model.h */,
+				9BFF4EFB1B205A4A00779118 /* Agent+Model.m */,
+				9BFF4EFD1B205A7C00779118 /* Agent.h */,
+				9BFF4EFE1B205A7C00779118 /* Agent.m */,
+				9BFF4F091B209BDE00779118 /* Domain.h */,
+				9BFF4F0A1B209BDE00779118 /* Domain.m */,
+				9BFF4F031B209BDD00779118 /* FreakType.h */,
+				9BFF4F041B209BDD00779118 /* FreakType.m */,
+				9BFF4F0D1B20AA0500779118 /* FreakType+Model.h */,
+				9BFF4F0E1B20AA0500779118 /* FreakType+Model.m */,
+				9BFF4F101B20AD9C00779118 /* Domain+Model.h */,
+				9BFF4F111B20AD9C00779118 /* Domain+Model.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,10 +270,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BFF4F0F1B20AA0500779118 /* FreakType+Model.m in Sources */,
+				9BFF4F051B209BDD00779118 /* FreakType.m in Sources */,
+				9BFF4F021B207FFA00779118 /* ImageMapper.m in Sources */,
 				9B31AD221B1EE66100F03C05 /* AgentEditViewController.m in Sources */,
+				9BFF4EFF1B205A7C00779118 /* Agent.m in Sources */,
+				9BFF4F121B20AD9C00779118 /* Domain+Model.m in Sources */,
+				9BFF4F0B1B209BDE00779118 /* Domain.m in Sources */,
 				9B31AD1F1B1EE66100F03C05 /* AgentsViewController.m in Sources */,
+				9BFF4EFC1B205A4A00779118 /* Agent+Model.m in Sources */,
 				9B31AD191B1EE66100F03C05 /* AppDelegate.m in Sources */,
-				9B31AD441B1F438000F03C05 /* Agent.m in Sources */,
 				9B31AD161B1EE66100F03C05 /* main.m in Sources */,
 				9B31AD1C1B1EE66100F03C05 /* BadHunter.xcdatamodeld in Sources */,
 			);
@@ -436,6 +480,7 @@
 				9B31AD3B1B1EE66100F03C05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9B31AD3C1B1EE66100F03C05 /* Build configuration list for PBXNativeTarget "BadHunterTests" */ = {
 			isa = XCConfigurationList;
@@ -444,6 +489,7 @@
 				9B31AD3E1B1EE66100F03C05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

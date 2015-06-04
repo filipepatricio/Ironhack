@@ -8,9 +8,12 @@
 
 #import "AgentEditViewController.h"
 #import <CoreData/CoreData.h>
-#import "Agent.h"
+#import "Agent+Model.h"
+#import "ImageMapper.h"
+#import "FreakType.h"
+#import "Domain.h"
 
-@interface AgentEditViewController ()
+@interface AgentEditViewController ()<UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *baddieNameTextField;
 @property (weak, nonatomic) IBOutlet UILabel *destroyPowerLevelLabel;
@@ -24,7 +27,11 @@
 @property (weak, nonatomic) IBOutlet UIStepper *destructionPowerStepper;
 @property (weak, nonatomic) IBOutlet UIStepper *motivationStepper;
 
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
+@property (weak, nonatomic) IBOutlet UIButton *buttonAddImage;
+
+@property (weak, nonatomic) IBOutlet UITextField *domainsTextField;
+@property (weak, nonatomic) IBOutlet UITextField *categoryTextField;
+
 @end
 
 @implementation AgentEditViewController
@@ -75,7 +82,7 @@
 - (IBAction)actionMotivationPowerValueChanged:(UIStepper *)sender
 {
     NSNumber *value = [NSNumber numberWithDouble:sender.value];
-    self.motivationLabel.text = self.motivationValues[[value integerValue]];
+//    self.motivationLabel.text = self.motivationValues[[value integerValue]];
     self.agent.motivation = value;
     NSLog(@"%@", value);
 }
@@ -85,16 +92,6 @@
 - (void)setAgent:(id)newDetailItem {
     if (_agent != newDetailItem) {
         _agent = newDetailItem;
-            
-        // Update the view.
-        [self configureView];
-    }
-}
-
-- (void)configureView {
-    // Update the user interface for the detail item.
-    if (self.agent) {
-        self.detailDescriptionLabel.text = ((Agent*)self.agent).name;
     }
 }
 
@@ -102,18 +99,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    [self configureView];
-    
-    self.navigationItem.leftBarButtonItem = self.cancelButton;
-    
-    self.appraisalLabel.text = self.appraisalValues[0];
-    self.destroyPowerLevelLabel.text = self.destroyPowerLevels[0];
-    self.motivationLabel.text = self.motivationValues[0];
     
     self.destructionPowerStepper.minimumValue = 0;
     self.destructionPowerStepper.maximumValue = self.destroyPowerLevels.count - 1;
     self.motivationStepper.minimumValue = 0;
     self.motivationStepper.maximumValue = self.motivationValues.count - 1;
+
+    self.baddieNameTextField.text = self.agent.name;
+    self.appraisalLabel.text = self.appraisalValues[self.agent.appraisal.intValue];
+    self.destroyPowerLevelLabel.text = self.destroyPowerLevels[self.agent.destructionPower.intValue];
+    self.motivationLabel.text = self.motivationValues[self.agent.motivation.intValue];
+    
+    self.categoryTextField.text = ((FreakType*)self.agent.category).name;
+    for(Domain *domain in self.agent.domains)
+        self.domainsTextField.text = [self.domainsTextField.text stringByAppendingString:[NSString stringWithFormat:@"%@, ", domain.name]];
+    
+    if(self.agent.pictureUUID)
+    {
+        self.buttonAddImage.backgroundColor = [UIColor colorWithPatternImage:[ImageMapper retrieveImageWithUUID:self.agent.pictureUUID]];
+    }
+
     
 }
 
@@ -123,6 +128,7 @@
     
     [self addObserver:self forKeyPath:@"agent.destructionPower" options:0 context:nil];
     [self addObserver:self forKeyPath:@"agent.motivation" options:0 context:nil];
+    [self addObserver:self forKeyPath:@"agent.appraisal" options:0 context:nil];
 }
 
 -(void)viewDidDisappear:(BOOL)animated
@@ -131,7 +137,9 @@
     
     [self removeObserver:self forKeyPath:@"agent.destructionPower"];
     [self removeObserver:self forKeyPath:@"agent.motivation"];
+    [self removeObserver:self forKeyPath:@"agent.appraisal"];
 }
+
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
@@ -145,11 +153,88 @@
         NSNumber *value = self.agent.motivation;
         self.motivationLabel.text = self.motivationValues[[value integerValue]];
     }
+    else if([keyPath isEqualToString:@"agent.appraisal"])
+    {
+        NSNumber *value = self.agent.appraisal;
+        self.appraisalLabel.text = self.appraisalValues[[value integerValue]];
+    }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)actionAddImage:(id)sender
+{
+    UIImagePickerController *picker = [[UIImagePickerController alloc]init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:picker animated:YES completion:nil];
+}
+
+#pragma mark UITextFieldDelegate
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+{
+    if(textField == self.domainsTextField)
+    {
+        NSArray *words = [self.domainsTextField.text componentsSeparatedByString:@","];
+        NSMutableArray *values = [[NSMutableArray alloc]init];
+        for (NSString *word in words)
+        {
+            [values addObject:@YES];
+        }
+        [self decorateTextField:self.domainsTextField withContents:words values:[values copy]];
+    }
+    else if(textField == self.categoryTextField)
+    {
+        [self decorateTextField:self.categoryTextField withContents:@[self.categoryTextField.text] values:@[@YES]];
+    }
+    
+    return [textField resignFirstResponder];;
+}
+
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+//    if(textField == self.domainsTextField)
+//    {
+//        [self removeDecorationOfTextInTextField:textField];
+//    }
+//    else if(textField == self.categoryTextField)
+//    {
+        [self removeDecorationOfTextInTextField:textField];
+//    }
+    return YES;
+}
+
+
+- (void) decorateTextField:(UITextField *)textField withContents:(NSArray *)contents
+                    values:(NSArray *)values {
+    NSMutableAttributedString *coloredString = [[NSMutableAttributedString alloc] init];
+    for (NSUInteger i = 0; i < [contents count]; i++) {
+        BOOL exists = [[values objectAtIndex:i] boolValue];
+        NSString *substring = [contents objectAtIndex:i];
+        UIColor *decorationColor = (exists)?[UIColor greenColor]:[UIColor redColor];
+        NSAttributedString *attributedSubstring = [[NSAttributedString alloc] initWithString:substring attributes:@{NSForegroundColorAttributeName: decorationColor}];
+        [coloredString appendAttributedString:attributedSubstring];
+        if (i < ([contents count] - 1)) {
+            [coloredString appendAttributedString:[[NSAttributedString alloc] initWithString:@","]];
+        }
+    }
+    textField.attributedText = coloredString;
+}
+
+- (void) removeDecorationOfTextInTextField:(UITextField *)textField {
+    textField.attributedText = [[NSAttributedString alloc] initWithString:textField.text
+                                                               attributes:@{NSForegroundColorAttributeName: [UIColor blackColor]}];
+}
+
+#pragma mark UIImagePickerController
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *imageChosen = (UIImage*)info[UIImagePickerControllerOriginalImage];
+    NSString *pictureUUID = [self.agent generatePictureUUID];
+    [ImageMapper storeImage:imageChosen withUUID:pictureUUID];
+    self.agent.pictureUUID = pictureUUID;
+    self.buttonAddImage.backgroundColor = [UIColor colorWithPatternImage:[ImageMapper retrieveImageWithUUID:self.agent.pictureUUID]];
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

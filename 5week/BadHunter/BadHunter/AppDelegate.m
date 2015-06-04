@@ -129,6 +129,7 @@
     
     _managedObjectContext.undoManager = [[NSUndoManager alloc] init];
     _managedObjectContext.undoManager.groupsByEvent = NO;
+    _managedObjectContext.undoManager.levelsOfUndo = 10;
     
     return _managedObjectContext;
 }
