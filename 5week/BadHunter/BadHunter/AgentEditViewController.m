@@ -10,8 +10,8 @@
 #import <CoreData/CoreData.h>
 #import "Agent+Model.h"
 #import "ImageMapper.h"
-#import "FreakType.h"
-#import "Domain.h"
+#import "FreakType+Model.h"
+#import "Domain+Model.h"
 
 @interface AgentEditViewController ()<UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -61,8 +61,21 @@
 {
     
     //Fill the changes on object KVC
-    Agent *agent = self.agent;
-    agent.name = self.baddieNameTextField.text;
+    self.agent.name = self.baddieNameTextField.text;
+    
+    BOOL categoryExists = [FreakType getFreakTypeByName:self.categoryTextField.text inMOC:self.agent.managedObjectContext] != nil;
+    if(!categoryExists)
+        self.agent.category = [FreakType addNewFreakTypeWithName:self.categoryTextField.text inMOC:self.agent.managedObjectContext];
+    
+    NSArray *words = [self.domainsTextField.text componentsSeparatedByString:@","];
+    NSMutableSet *mutableSet = [self.agent.domains mutableCopy];
+    for (NSString *word in words)
+    {
+        Domain *domain = [Domain getDomainByName:word inMOC:self.agent.managedObjectContext];
+        BOOL domainExists = domain != nil;
+        !domainExists ? [mutableSet addObject:[Domain addNewDomainWithName:word inMOC:self.agent.managedObjectContext]] : nil;
+    }
+    self.agent.domains = [mutableSet copy];
     
     [self.delegate didModifiedData:YES];
 }
@@ -104,6 +117,9 @@
     self.destructionPowerStepper.maximumValue = self.destroyPowerLevels.count - 1;
     self.motivationStepper.minimumValue = 0;
     self.motivationStepper.maximumValue = self.motivationValues.count - 1;
+    
+    self.destructionPowerStepper.value = self.agent.destructionPower.intValue;
+    self.motivationStepper.value = self.agent.motivation.intValue;
 
     self.baddieNameTextField.text = self.agent.name;
     self.appraisalLabel.text = self.appraisalValues[self.agent.appraisal.intValue];
@@ -112,7 +128,7 @@
     
     self.categoryTextField.text = ((FreakType*)self.agent.category).name;
     for(Domain *domain in self.agent.domains)
-        self.domainsTextField.text = [self.domainsTextField.text stringByAppendingString:[NSString stringWithFormat:@"%@, ", domain.name]];
+        self.domainsTextField.text = [self.domainsTextField.text stringByAppendingString:[NSString stringWithFormat:@"%@,", domain.name]];
     
     if(self.agent.pictureUUID)
     {
@@ -178,13 +194,15 @@
         NSMutableArray *values = [[NSMutableArray alloc]init];
         for (NSString *word in words)
         {
-            [values addObject:@YES];
+            BOOL exists = [Domain getDomainByName:word inMOC:self.agent.managedObjectContext] != nil;
+            [values addObject:[NSNumber numberWithBool:exists]];
         }
         [self decorateTextField:self.domainsTextField withContents:words values:[values copy]];
     }
     else if(textField == self.categoryTextField)
     {
-        [self decorateTextField:self.categoryTextField withContents:@[self.categoryTextField.text] values:@[@YES]];
+        BOOL exists = [FreakType getFreakTypeByName:textField.text inMOC:self.agent.managedObjectContext] != nil;
+        [self decorateTextField:self.categoryTextField withContents:@[self.categoryTextField.text] values:@[[NSNumber numberWithBool:exists]]];
     }
     
     return [textField resignFirstResponder];;

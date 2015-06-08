@@ -9,20 +9,26 @@
 #import "Domain+Model.h"
 
 @implementation Domain (Model)
--(instancetype)initWithName:(NSString*)name
++ (instancetype)addNewDomainWithName:(NSString*)name inMOC:(NSManagedObjectContext*)moc
 {
-    if(self = [self init])
-    {
-        self.name = name;
-    }
-    return self;
+    Domain *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:kKeyDomainClass inManagedObjectContext:moc];
+    newManagedObject.name = name;
+    return newManagedObject;
 }
 
-+(Domain*)getDomainTypeByName:(NSString*)name inMOC:(NSManagedObjectContext*)moc
++(Domain*)getDomainByName:(NSString*)name inMOC:(NSManagedObjectContext*)moc
 {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:kKeyDomainClass];
     fetchRequest.predicate = [NSPredicate predicateWithFormat:@"%K == %@", kKeyName, name];
-    
     return [[moc executeFetchRequest:fetchRequest error:nil] firstObject];
+}
+
++(NSInteger)getNumberOfDomainsWithMoreThanOneAgentWithMoreThan3OfDestructionPowerWithMOC:(NSManagedObjectContext*)moc
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Domain"];
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"(SUBQUERY(agents, $agent, $agent.destructionPower >= 3).@count >= 1)"];
+    fetchRequest.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES]];
+    
+    return [moc executeFetchRequest:fetchRequest error:nil].count;
 }
 @end

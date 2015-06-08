@@ -12,6 +12,6 @@
 #define kKeyName @"name"
 
 @interface FreakType (Model)
--(instancetype)initWithName:(NSString*)name;
++ (instancetype)addNewFreakTypeWithName:(NSString*)name inMOC:(NSManagedObjectContext*)moc;
 +(FreakType*)getFreakTypeByName:(NSString*)name inMOC:(NSManagedObjectContext*)moc;
 @end

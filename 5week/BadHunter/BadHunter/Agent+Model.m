@@ -95,4 +95,13 @@
     return fetchRequest;
 }
 
++(NSFetchRequest*)fetchForAllAgentsWithSortDescriptors:(NSArray*)sortDescriptors
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Agent"];
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"TRUEPREDICATE"];
+    [fetchRequest setFetchBatchSize:20];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    return fetchRequest;
+}
+
 @end

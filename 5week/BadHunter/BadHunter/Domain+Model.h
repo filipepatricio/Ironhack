@@ -12,6 +12,7 @@
 #define kKeyName @"name"
 
 @interface Domain (Model)
--(instancetype)initWithName:(NSString*)name;
-+(Domain*)getDomainTypeByName:(NSString*)name inMOC:(NSManagedObjectContext*)moc;
++ (instancetype)addNewDomainWithName:(NSString*)name inMOC:(NSManagedObjectContext*)moc;
++ (Domain*)getDomainByName:(NSString*)name inMOC:(NSManagedObjectContext*)moc;
++(NSInteger)getNumberOfDomainsWithMoreThanOneAgentWithMoreThan3OfDestructionPowerWithMOC:(NSManagedObjectContext*)moc;
 @end

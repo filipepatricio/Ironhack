@@ -9,6 +9,7 @@
 #import "AgentsViewController.h"
 #import "AgentEditViewController.h"
 #import "Agent+Model.h"
+#import "Domain+Model.h"
 
 @interface AgentsViewController () <EditDataProtocol>
 
@@ -83,6 +84,13 @@
     return cell;
 }
 
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
+    NSNumber *avg = [sectionInfo.objects valueForKeyPath:@"@avg.destructionPower"];
+    return [[sectionInfo name] stringByAppendingString:[NSString stringWithFormat:@" with avg: %@", avg]];
+}
+
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     return YES;
@@ -116,11 +124,16 @@
         return _fetchedResultsController;
     }
     
+    NSSortDescriptor *sortDescriptorByDestructionPower = [[NSSortDescriptor alloc] initWithKey:@"destructionPower" ascending:NO];
+    NSSortDescriptor *sortDescriptorByName = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    
+    NSFetchRequest *fetchRequest = [Agent fetchForAllAgentsWithSortDescriptors:@[sortDescriptorByDestructionPower,sortDescriptorByName]];
     //NSFetchRequest *fetchRequest = [Agent fetchForAllAgents];
-    NSFetchRequest *fetchRequest = [Agent fetchForAllAgentsWithPredicate:[NSPredicate predicateWithFormat:@"%K < %@", kKeyDestructionPower ,@2]];
+    //NSFetchRequest *fetchRequest = [Agent fetchForAllAgentsWithPredicate:[NSPredicate predicateWithFormat:@"%K < %@", kKeyDestructionPower ,@2]];
+    
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:@"category.name" cacheName:nil];
     aFetchedResultsController.delegate = self;
     self.fetchedResultsController = aFetchedResultsController;
     
@@ -185,7 +198,10 @@
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
+    long numberOfDomains = [Domain getNumberOfDomainsWithMoreThanOneAgentWithMoreThan3OfDestructionPowerWithMOC:self.managedObjectContext];
+    self.title = [NSString stringWithFormat:@"Number of Domains: %ld", numberOfDomains];
     [self.tableView endUpdates];
+    [self.tableView reloadData];
 }
 
 

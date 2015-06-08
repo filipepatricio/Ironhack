@@ -12,20 +12,18 @@
 
 @implementation FreakType (Model)
 
--(instancetype)initWithName:(NSString*)name
++ (instancetype)addNewFreakTypeWithName:(NSString*)name inMOC:(NSManagedObjectContext*)moc
 {
-    if(self = [self init])
-    {
-        self.name = name;
-    }
-    return self;
+    FreakType *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:kKeyFreakyClass inManagedObjectContext:moc];
+    newManagedObject.name = name;
+    return newManagedObject;
 }
+
 
 +(FreakType*)getFreakTypeByName:(NSString*)name inMOC:(NSManagedObjectContext*)moc
 {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:kKeyFreakyClass];
     fetchRequest.predicate = [NSPredicate predicateWithFormat:@"%K == %@", kKeyName, name];
-    
     return [[moc executeFetchRequest:fetchRequest error:nil] firstObject];
 }
 

@@ -16,4 +16,5 @@
 - (NSString *) generatePictureUUID;
 + (NSFetchRequest*)fetchForAllAgents;
 + (NSFetchRequest*)fetchForAllAgentsWithPredicate:(NSPredicate*)predicate;
++(NSFetchRequest*)fetchForAllAgentsWithSortDescriptors:(NSArray*)sortDescriptors;
 @end
