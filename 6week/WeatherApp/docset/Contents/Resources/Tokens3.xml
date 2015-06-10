@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/ForecastModel.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/ForecastModel</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="3"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ForecastModel/setTemp:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastModel.h</DeclaredIn>
+			
+			<Declaration>@property (assign, nonatomic) float temp</Declaration>
+			
+			
+			<Anchor>//api/name/temp</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ForecastModel/temp</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastModel.h</DeclaredIn>
+			
+			<Declaration>@property (assign, nonatomic) float temp</Declaration>
+			
+			
+			<Anchor>//api/name/temp</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ForecastModel/temp</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastModel.h</DeclaredIn>
+			
+			<Declaration>@property (assign, nonatomic) float temp</Declaration>
+			
+			
+			<Anchor>//api/name/temp</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ForecastModel/setMinTemp:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastModel.h</DeclaredIn>
+			
+			<Declaration>@property (assign, nonatomic) float minTemp</Declaration>
+			
+			
+			<Anchor>//api/name/minTemp</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ForecastModel/minTemp</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastModel.h</DeclaredIn>
+			
+			<Declaration>@property (assign, nonatomic) float minTemp</Declaration>
+			
+			
+			<Anchor>//api/name/minTemp</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ForecastModel/minTemp</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastModel.h</DeclaredIn>
+			
+			<Declaration>@property (assign, nonatomic) float minTemp</Declaration>
+			
+			
+			<Anchor>//api/name/minTemp</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ForecastModel/setMaxTemp:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastModel.h</DeclaredIn>
+			
+			<Declaration>@property (assign, nonatomic) float maxTemp</Declaration>
+			
+			
+			<Anchor>//api/name/maxTemp</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ForecastModel/maxTemp</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastModel.h</DeclaredIn>
+			
+			<Declaration>@property (assign, nonatomic) float maxTemp</Declaration>
+			
+			
+			<Anchor>//api/name/maxTemp</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ForecastModel/maxTemp</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastModel.h</DeclaredIn>
+			
+			<Declaration>@property (assign, nonatomic) float maxTemp</Declaration>
+			
+			
+			<Anchor>//api/name/maxTemp</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ForecastModel/setPressure:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastModel.h</DeclaredIn>
+			
+			<Declaration>@property (assign, nonatomic) float pressure</Declaration>
+			
+			
+			<Anchor>//api/name/pressure</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ForecastModel/pressure</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastModel.h</DeclaredIn>
+			
+			<Declaration>@property (assign, nonatomic) float pressure</Declaration>
+			
+			
+			<Anchor>//api/name/pressure</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ForecastModel/pressure</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastModel.h</DeclaredIn>
+			
+			<Declaration>@property (assign, nonatomic) float pressure</Declaration>
+			
+			
+			<Anchor>//api/name/pressure</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ForecastModel/setHumidity:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastModel.h</DeclaredIn>
+			
+			<Declaration>@property (assign, nonatomic) float humidity</Declaration>
+			
+			
+			<Anchor>//api/name/humidity</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ForecastModel/humidity</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastModel.h</DeclaredIn>
+			
+			<Declaration>@property (assign, nonatomic) float humidity</Declaration>
+			
+			
+			<Anchor>//api/name/humidity</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ForecastModel/humidity</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastModel.h</DeclaredIn>
+			
+			<Declaration>@property (assign, nonatomic) float humidity</Declaration>
+			
+			
+			<Anchor>//api/name/humidity</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ForecastModel/setCityName:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastModel.h</DeclaredIn>
+			
+			<Declaration>@property (copy, nonatomic) NSString *cityName</Declaration>
+			
+			
+			<Anchor>//api/name/cityName</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ForecastModel/cityName</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastModel.h</DeclaredIn>
+			
+			<Declaration>@property (copy, nonatomic) NSString *cityName</Declaration>
+			
+			
+			<Anchor>//api/name/cityName</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ForecastModel/cityName</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastModel.h</DeclaredIn>
+			
+			<Declaration>@property (copy, nonatomic) NSString *cityName</Declaration>
+			
+			
+			<Anchor>//api/name/cityName</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ForecastModel/setWeatherDescription:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastModel.h</DeclaredIn>
+			
+			<Declaration>@property (copy, nonatomic) NSString *weatherDescription</Declaration>
+			
+			
+			<Anchor>//api/name/weatherDescription</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ForecastModel/weatherDescription</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastModel.h</DeclaredIn>
+			
+			<Declaration>@property (copy, nonatomic) NSString *weatherDescription</Declaration>
+			
+			
+			<Anchor>//api/name/weatherDescription</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ForecastModel/weatherDescription</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastModel.h</DeclaredIn>
+			
+			<Declaration>@property (copy, nonatomic) NSString *weatherDescription</Declaration>
+			
+			
+			<Anchor>//api/name/weatherDescription</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ForecastModel/setIconURL:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastModel.h</DeclaredIn>
+			
+			<Declaration>@property (copy, nonatomic) NSString *iconURL</Declaration>
+			
+			
+			<Anchor>//api/name/iconURL</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ForecastModel/iconURL</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastModel.h</DeclaredIn>
+			
+			<Declaration>@property (copy, nonatomic) NSString *iconURL</Declaration>
+			
+			
+			<Anchor>//api/name/iconURL</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ForecastModel/iconURL</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastModel.h</DeclaredIn>
+			
+			<Declaration>@property (copy, nonatomic) NSString *iconURL</Declaration>
+			
+			
+			<Anchor>//api/name/iconURL</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/ImageDownloader.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/ImageDownloader</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ImageDownloader.h</DeclaredIn>
+            
+			
+			<NodeRef refid="5"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/ImageDownloader/imageWithURL:completionBlock:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ImageDownloader.h</DeclaredIn>
+			
+			<Declaration>+ (void)imageWithURL:(NSString *)url completionBlock:(void ( ^ ) ( UIImage *image ))completionBlock</Declaration>
+			
+			
+			<Anchor>//api/name/imageWithURL:completionBlock:</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

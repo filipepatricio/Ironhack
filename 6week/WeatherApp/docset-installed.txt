@@ -1,0 +1,4 @@
+Documentation set was installed to Xcode!
+
+Path: /Users/FilipePatricio/Library/Developer/Shared/Documentation/DocSets/com.ironHack” --output “~/dev2015/Help/WeatherApp.WeatherApp.docset
+Time: 2015-06-09 11:03:24 +0000

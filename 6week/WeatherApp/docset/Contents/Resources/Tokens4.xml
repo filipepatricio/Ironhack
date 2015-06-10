@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/ForecastParserHelper.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/ForecastParserHelper</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastParserHelper.h</DeclaredIn>
+            
+			
+			<NodeRef refid="4"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ForecastParserHelper/todayForecastWithData:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastParserHelper.h</DeclaredIn>
+			
+			<Declaration>- (ForecastModel *)todayForecastWithData:(NSData *)forecastData</Declaration>
+			
+			
+			<Anchor>//api/name/todayForecastWithData:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ForecastParserHelper/weekForecastWithData:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastParserHelper.h</DeclaredIn>
+			
+			<Declaration>- (NSArray *)weekForecastWithData:(NSData *)weekForecastData</Declaration>
+			
+			
+			<Anchor>//api/name/weekForecastWithData:</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

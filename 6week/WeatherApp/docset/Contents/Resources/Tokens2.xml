@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/ForecastCell.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/ForecastCell</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastCell.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ForecastCell/setForecastImageView:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastCell.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UIImageView *forecastImageView</Declaration>
+			
+			
+			<Anchor>//api/name/forecastImageView</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ForecastCell/forecastImageView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastCell.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UIImageView *forecastImageView</Declaration>
+			
+			
+			<Anchor>//api/name/forecastImageView</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ForecastCell/forecastImageView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastCell.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UIImageView *forecastImageView</Declaration>
+			
+			
+			<Anchor>//api/name/forecastImageView</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ForecastCell/setMaxTempLabel:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastCell.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UILabel *maxTempLabel</Declaration>
+			
+			
+			<Anchor>//api/name/maxTempLabel</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ForecastCell/maxTempLabel</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastCell.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UILabel *maxTempLabel</Declaration>
+			
+			
+			<Anchor>//api/name/maxTempLabel</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ForecastCell/maxTempLabel</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastCell.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UILabel *maxTempLabel</Declaration>
+			
+			
+			<Anchor>//api/name/maxTempLabel</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ForecastCell/setMinTempLabel:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastCell.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UILabel *minTempLabel</Declaration>
+			
+			
+			<Anchor>//api/name/minTempLabel</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ForecastCell/minTempLabel</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastCell.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UILabel *minTempLabel</Declaration>
+			
+			
+			<Anchor>//api/name/minTempLabel</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ForecastCell/minTempLabel</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastCell.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UILabel *minTempLabel</Declaration>
+			
+			
+			<Anchor>//api/name/minTempLabel</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ForecastCell/setDayOfWeekLabel:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastCell.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UILabel *dayOfWeekLabel</Declaration>
+			
+			
+			<Anchor>//api/name/dayOfWeekLabel</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ForecastCell/dayOfWeekLabel</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastCell.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UILabel *dayOfWeekLabel</Declaration>
+			
+			
+			<Anchor>//api/name/dayOfWeekLabel</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ForecastCell/dayOfWeekLabel</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>ForecastCell.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UILabel *dayOfWeekLabel</Declaration>
+			
+			
+			<Anchor>//api/name/dayOfWeekLabel</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

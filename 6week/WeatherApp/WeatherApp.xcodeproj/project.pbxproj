@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		9BFF4F701B26FEC000779118 /* WeatherDocs */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 9BFF4F711B26FEC000779118 /* Build configuration list for PBXAggregateTarget "WeatherDocs" */;
+			buildPhases = (
+				9BFF4F741B26FEC600779118 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = WeatherDocs;
+			productName = WeatherDocs;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		9BFF4F291B25818200779118 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFF4F281B25818200779118 /* main.m */; };
 		9BFF4F2C1B25818200779118 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFF4F2B1B25818200779118 /* AppDelegate.m */; };
@@ -61,6 +75,7 @@
 		9BFF4F651B25CB0800779118 /* ForecastCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastCell.m; sourceTree = "<group>"; };
 		9BFF4F671B25E9DD00779118 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		9BFF4F681B25E9DD00779118 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		9BFF4F6F1B26F96200779118 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +126,7 @@
 				9BFF4F381B25818200779118 /* LaunchScreen.xib */,
 				9BFF4F5C1B259C9A00779118 /* Model */,
 				9BFF4F261B25818200779118 /* Supporting Files */,
+				9BFF4F6F1B26F96200779118 /* readme.md */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
@@ -232,6 +248,9 @@
 						CreatedOnToolsVersion = 6.3.1;
 						TestTargetID = 9BFF4F221B25818200779118;
 					};
+					9BFF4F701B26FEC000779118 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
 				};
 			};
 			buildConfigurationList = 9BFF4F1E1B25818200779118 /* Build configuration list for PBXProject "WeatherApp" */;
@@ -249,6 +268,7 @@
 			targets = (
 				9BFF4F221B25818200779118 /* WeatherApp */,
 				9BFF4F3E1B25818200779118 /* WeatherAppTests */,
+				9BFF4F701B26FEC000779118 /* WeatherDocs */,
 			);
 		};
 /* End PBXProject section */
@@ -272,6 +292,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9BFF4F741B26FEC600779118 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\n/usr/local/bin/appledoc \\\n--project-name \"${PROJECT_NAME}\" \\\n--project-company “IronHack” \\\n--company-id \"com.ironHack” \\\n--output “~/dev2015/Help/${PROJECT_NAME}\" \\\n--install-docset \\\n--logformat xcode \\\n--keep-undocumented-objects \\\n--keep-undocumented-members \\\n--keep-intermediate-files \\\n--no-repeat-first-par \\\n--no-warn-invalid-crossref \\\n--merge-categories \\\n--exit-threshold 2 \\\n--docset-platform-family iphoneos \\\n--ignore \"*.m\" \\\n--index-desc \"${PROJECT_DIR}/readme.md\" \\\n\"${PROJECT_DIR}/${PROJECT_NAME}\" \\";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9BFF4F1F1B25818200779118 /* Sources */ = {
@@ -465,6 +501,20 @@
 			};
 			name = Release;
 		};
+		9BFF4F721B26FEC000779118 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9BFF4F731B26FEC000779118 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -484,12 +534,22 @@
 				9BFF4F4B1B25818200779118 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9BFF4F4C1B25818200779118 /* Build configuration list for PBXNativeTarget "WeatherAppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9BFF4F4D1B25818200779118 /* Debug */,
 				9BFF4F4E1B25818200779118 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9BFF4F711B26FEC000779118 /* Build configuration list for PBXAggregateTarget "WeatherDocs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BFF4F721B26FEC000779118 /* Debug */,
+				9BFF4F731B26FEC000779118 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
