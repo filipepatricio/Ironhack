@@ -127,8 +127,10 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="IGg-cG-DUr">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <gestureRecognizers/>
                                 <connections>
                                     <outlet property="delegate" destination="0lt-Sv-6Ll" id="ULL-zA-DAg"/>
+                                    <outletCollection property="gestureRecognizers" destination="rFt-Hp-d9A" appends="YES" id="yst-ej-TP8"/>
                                 </connections>
                             </mapView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sbw-m7-LOr">
@@ -190,6 +192,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ESc-B8-717" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="rFt-Hp-d9A">
+                    <connections>
+                        <action selector="mapTap:" destination="0lt-Sv-6Ll" id="bxd-Hr-tLQ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1322" y="976"/>
         </scene>

@@ -28,6 +28,12 @@
     
     self.locationManager = [[CLLocationManager alloc] init];
     
+
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     if([CLLocationManager locationServicesEnabled])
     {
         if([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)])
@@ -35,15 +41,15 @@
             [self.locationManager requestWhenInUseAuthorization];
             //Add to Info.plist: NSLocationWhenInUseUsageDescription
         }
-            
+        
         self.locationManager.delegate = self;
         [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
         [self.locationManager startUpdatingLocation];
         
         if([CLLocationManager headingAvailable])
             [self.locationManager startUpdatingHeading];
-            
-
+        
+        
     }
 }
 

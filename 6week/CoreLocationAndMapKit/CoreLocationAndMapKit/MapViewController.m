@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UISwitch *modeSwitch;
 
+@property (nonatomic, strong) CLLocation *selectedLocation;
+
 @property (strong, nonatomic) NSMutableArray *cameras;
 @end
 
@@ -290,15 +292,77 @@
                      }];
 }
 
--(void)calculateRoute
-{
+
+#pragma mark Reverse geocode
+
+- (IBAction)mapTap:(id)sender {
+    
+    
+    
+    UITapGestureRecognizer *tap = (UITapGestureRecognizer *)sender;
+    CGPoint tapPoint = [tap locationInView:self.mapView];
+    
+    CLLocationCoordinate2D coord = [self.mapView convertPoint:tapPoint
+                                     toCoordinateFromView:self.mapView];
+    
+    
+    self.selectedLocation = [[CLLocation alloc] initWithLatitude:coord.latitude longitude:coord.longitude];
+    
+    [self reverseGeocodeLocation];
+    
+}
+
+-(void)reverseGeocodeLocation {
+    
+    NSLog(@"Coord %f",self.selectedLocation.coordinate.latitude);
+    NSLog(@"Coord %f",self.selectedLocation.coordinate.longitude);
+    
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder reverseGeocodeLocation:self.selectedLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+        
+        if(placemarks.count){
+            NSDictionary *dictionary = [[placemarks objectAtIndex:0] addressDictionary];
+            NSDictionary *surfaceDictionary = [dictionary valueForKey:@"Street"];
+            
+            NSMutableString *reverseGeocodedAddress;
+            //Check if land
+            if (surfaceDictionary){
+                
+                reverseGeocodedAddress = [NSMutableString stringWithFormat:@"%@", [dictionary valueForKey:@"Street"]];
+                
+                [reverseGeocodedAddress appendString:[dictionary valueForKey:@"City"]];
+                [reverseGeocodedAddress appendString:[dictionary valueForKey:@"State"]];
+                [reverseGeocodedAddress appendString:[dictionary valueForKey:@"ZIP"]];
+                
+            } else {
+                reverseGeocodedAddress = [NSMutableString stringWithFormat:@"%@", [dictionary valueForKey:@"Name"]];
+                [reverseGeocodedAddress appendString:[dictionary valueForKey:@"Ocean"]];
+                
+            }
+            
+            
+            self.searchBar.text = reverseGeocodedAddress;
+            
+            [self calculateRoute];
+            
+            
+        }
+    }];
+    
+}
+
+
+#pragma mark Routes
+
+-(void)calculateRoute {
+    
     MKDirectionsRequest *request = [[MKDirectionsRequest alloc] init];
+    
     request.source = [MKMapItem mapItemForCurrentLocation];
-    request.transportType = MKDirectionsTransportTypeAny;
     
-    CLLocationCoordinate2D coord = ((CoolBar*)[self.baresArray firstObject]).coordinate;
+    request.transportType = MKDirectionsTransportTypeWalking;
     
-    MKPlacemark *destinationPlacemark = [[MKPlacemark alloc] initWithCoordinate:coord addressDictionary:nil];
+    MKPlacemark *destinationPlacemark = [[MKPlacemark alloc] initWithCoordinate:self.selectedLocation.coordinate  addressDictionary:nil] ;
     
     MKMapItem *destinationMapItem = [[MKMapItem alloc] initWithPlacemark:destinationPlacemark];
     
@@ -306,44 +370,62 @@
     
     request.requestsAlternateRoutes = YES;
     
-    MKDirections *directions = [[MKDirections alloc] initWithRequest:request];
+    MKDirections *directions =
+    [[MKDirections alloc] initWithRequest:request];
     
-    [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
-        if(error)
-        {
-            NSLog(@"Error = %@", error);
-        }
-        else
-        {
-            NSLog(@"Response = %@", response);
-            [self showRoute:response];
-        }
-    }];
+    [directions calculateDirectionsWithCompletionHandler:
+     ^(MKDirectionsResponse *response, NSError *error) {
+         
+         if (error) {
+             // Handle Error
+         } else {
+             
+             
+             [self showRoute:response];
+         }
+         
+     }];
 }
 
--(void)showRoute:(MKDirectionsResponse*)response
+
+-(void)showRoute:(MKDirectionsResponse *)response
 {
-    for (MKRoute *route in response.routes)
-    {
-        [self.mapView addOverlay:route.polyline level:MKOverlayLevelAboveRoads];
+    [self.mapView removeOverlays:self.mapView.overlays];
+    for (MKRoute *route in response.routes){
         
-        for(MKRouteStep *step in route.steps)
-        {
+        [self.mapView
+         addOverlay:route.polyline level:MKOverlayLevelAboveRoads];
+        
+        for (MKRouteStep *step in route.steps){
+            
             NSLog(@"%@", step.instructions);
-            AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:step.instructions];
+            
+            AVSpeechUtterance *utterance = [AVSpeechUtterance
+                                            speechUtteranceWithString:step.instructions];
+            
             AVSpeechSynthesizer *synth = [[AVSpeechSynthesizer alloc] init];
             [synth speakUtterance:utterance];
+            
         }
+        
     }
+    
+    
     
 }
 
--(MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
+
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id < MKOverlay >)overlay
 {
-    MKPolygonRenderer *renderer = [[MKPolygonRenderer alloc] initWithOverlay:overlay];
+    
+    MKPolylineRenderer *renderer =
+    [[MKPolylineRenderer alloc] initWithOverlay:overlay];
+    
     renderer.strokeColor = [UIColor blueColor];
     renderer.lineWidth = 5.0;
     return renderer;
+    
+    
 }
 
 #pragma mark UISearchBar
